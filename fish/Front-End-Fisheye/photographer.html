@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="Page Photographe." />
+  <title>Fisheye</title>
+
+  <!--    FAVICON------------------------------------>
+  <link rel="icon" type="image/png" href="./assets/icons/logo.png">
+
+  <!-- FONTS ------------------------------------------------>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+
+  <!--    RESPONSIVE EDGE------------------------------------>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!--    RESPONSIVE----------------------------------------->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--	FONTAWESOME---------------------------------------->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+
+  <!--	CSS------------------------------------------------>
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body class="overflow">
+
+  <!--	HEADER------------------------------------------------>
+  <header class="header">
+    <a href="index.html" class="header-logo" id="logo_home">
+      <img src="assets/icons/logo.png" class="logo" aria-label="Fisheye Home page" />
+      <title id="title">Fisheye</title>
+    </a>
+  </header>
+  <!--	MAIN------------------------------------------------>
+  <main id="main">
+
+    <!--	SECTION PHOTOGRAPHER------------------------------------------------>
+    <section id="photographer" class="photographer">
+    </section>
+    <div class="contactModal" id="contactModal" role="dialog" aria-labelledby="contactModal-title" aria-hidden="true">
+      <div class="content">
+        <div class="headerModal">
+          <div class="title">
+            <h2>Contactez-moi</h2>
+            <p id="photographerName" class="photographerName"></p>
+          </div>
+          <div class="closeModal" id="closeModal" aria-label="closeModal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path
+                d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" />
+            </svg>
+          </div>
+        </div>
+        <form name="contactForm" id="contactForm">
+          <div class="formData">
+            <label class="form-label" for="firstName">Prénom</label>
+            <input class="form-control" type="text" id="first" name="firstName" aria-labelledby="firstName"
+              aria-required="true" />
+          </div>
+          <div class="formData">
+            <label class="form-label" for="lastName">Nom</label>
+            <input class="form-control" type="text" id="last" name="lastName" aria-labelledby="lastName"
+              aria-required="true" />
+          </div>
+          <div class="formData">
+            <label class="form-label" for="email">E-mail</label>
+            <input class="form-control" type="email" id="email" name="email" aria-labelledby="email"
+              aria-required="true" />
+          </div>
+          <div class="formData">
+            <label class="form-label" for="textArea">Votre message</label>
+            <textarea name="contactTextArea" id="textContact" cols="30" rows="10" aria-labelledby="textContact"
+              aria-required="true"></textarea>
+          </div>
+        </form>
+        <button class="contactBtn closeModal" type="submit" value="Envoyer">Envoyer</button>
+      </div>
+    </div>
+
+    <!--	SECTION PORTFOLIO------------------------------------------------>
+    <section class="portfolio" id="portfolio">
+
+      <!--	FILTER------------------------------------------------>
+      <div class="filter-form-wrapper">
+        <form class="filter-form" action="#" method="POST">
+          <label for="filter-select">Trier par : </label>
+          <select name="filter-select" id="filter-select">
+            <option value="Popularite" selected>Popularité</option>
+            <option value="Date">Date</option>
+            <option value="Titre">Titre</option>
+          </select>
+        </form>
+      </div>
+
+      <!--	ARTICLE GALLERY------------------------------------------------>
+      <!-- on injecte le render all media ds la gallery container -->
+      <div class="galleryContainer"></div>
+
+      <div class="lightbox" id="ligthbox" arial-label="image closeup view" role="dialog">
+        <button class="lightbox__prev" id="lightbox__prev" aria-label="Previous media" data-lightbox-prev>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+            <path
+              d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z" />
+          </svg>
+        </button>
+        <!-- on injecte le render all lightbox ds la lightboxmedia -->
+        <div class="lightbox-media" id="light"></div>
+        <button class="lightbox__next" id="lightbox__next aria-label=" Next media" data-lightbox-next>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+            <path
+              d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z" />
+          </svg>
+        </button>
+        <button class="lightbox__close" id="lightbox__close" aria-label="Close" data-lightbox-close>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" />
+          </svg>
+        </button>
+
+      </div>
+      </div>
+    </section>
+
+  </main>
+  <!--	FOOTER------------------------------------------------>
+  <footer id="footer" class="footer" aria-label="total des mentions j'aime et prix par jour">
+    <div class="footerInfos">
+      <span class="footerInfosCunt" id="footerInfosCunt" aria-label="total des mentions j'aime">680</span>
+      <svg class="svg-inline--fa fa-heart footerInfosHeart" aria-label="icone coeur" tabindex="-1" aria-hidden="true"
+        focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512" data-fa-i2svg="">
+        <path fill="currentColor"
+          d="M472.1 270.5l-193.1 199.7c-12.64 13.07-33.27 13.08-45.91 .0107l-193.2-199.7C-16.21 212.5-13.1 116.7 49.04 62.86C103.3 15.88 186.4 24.42 236.3 75.98l19.7 20.27l19.7-20.27c49.95-51.56 132.1-60.1 187.3-13.12C525.1 116.6 528.2 212.5 472.1 270.5z">
+        </path>
+      </svg>
+    </div>
+    <p aria-label="Prix du photographe par jour" tabindex="-1" class="footerPrice">400€ / jour</p>
+  </footer>
+
+  <!--SCRIPT------------------------------------------------>
+  <script src="../scripts/utils/contactForm.js"></script>
+  <!-- <script src="../scripts/utils/lightbox.js"></script> -->
+  <script type="module" src="../scripts/pages/photographer.js"></script>
+</body>
+
+</html>
