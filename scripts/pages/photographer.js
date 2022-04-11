@@ -1,5 +1,5 @@
 import { PhotographFactory } from '../factories/_photographFactory.js'
-import { MediaFactory } from '../factories/_mediasFactory.js'
+// import { MediaFactory } from '../factories/_mediasFactory.js'
 // import { LightboxContain } from '../utils/lightbox.js'
 
 // let data = new Photograph()
@@ -30,7 +30,7 @@ window.addEventListener('load', displayOnePhotograph())
 let displayAllMedia = async () => {
 
 
-    let media = new MediaFactory()
+    let media = new PhotographFactory()
     console.log(media)
     let AllMedias = await media.getAllMedia(urlId)
     // let AllMediasLightbox = await media.getAllMedia(urlId)
