@@ -1,6 +1,6 @@
 import { Api } from '../api/_api.js'
 import { PhotographersCards } from '../models/_photographersCards.js'
-import { MediaCards } from '../models/_mediaCards.js'
+
 
 /*ma class Photograph hérite de ma class Api*/
 export class PhotographFactory extends Api {
@@ -40,9 +40,10 @@ export class PhotographFactory extends Api {
       // console.log(Onephotograph)
       //on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
       let photographerprofile = new PhotographersCards(Onephotograph)
-      console.log(photographerprofile)
+      // console.log(photographerprofile)
       //on cree notre render en lui passant notre photograph profile et on appelle notre methode
       let renderProfile = photographerprofile.renderPhotographHeader()
+      console.log(renderProfile)
       // on retourne notre render final avec toutes les infos necessaires
       return renderProfile
     } catch (err) {

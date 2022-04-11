@@ -77,8 +77,4 @@ export class MediaCards {
         </article>`
     }
 
-
-
-
-
 }

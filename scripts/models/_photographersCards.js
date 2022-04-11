@@ -32,7 +32,7 @@ export class PhotographersCards {
         </div>
         </div>
             <button class="contactBtn" id="openModal" aria-labelleby="photographer contact ${this._name}">Contactez-moi</button>
-            <img class="img-profile" src="assets/images/photographers/${this._id}/${this._portrait}" alt="">
+            <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="${this._name}">
         </div>
         </div>`
       }

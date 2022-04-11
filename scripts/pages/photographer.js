@@ -13,8 +13,9 @@ const urlId = urlParams.get('id')
 let displayOnePhotograph = async () => {
 
     let photograph = new PhotographFactory()
-    console.log(photograph)
+    // console.log(photograph)
     let OnePhotograph = await photograph.getOnePhotograph(urlId)
+    console.log(OnePhotograph)
 
     document.querySelector('#photographer').innerHTML = OnePhotograph
 
