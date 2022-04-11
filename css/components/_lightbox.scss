@@ -1,0 +1,76 @@
+.lightboxOpen {
+  .lightbox {
+    display: block;
+  }
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(255, 251, 251, 0.3);
+  z-index: 10;
+  transition: opacity 0.3s;
+  button {
+    opacity: 0.5;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    transition: opacity 0.3;
+    text-indent: -3000px;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .lightbox__next,
+  .lightbox__prev {
+    //background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M96 480c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L242.8 256L73.38 86.63c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l192 192c12.5 12.5 12.5 32.75 0 45.25l-192 192C112.4 476.9 104.2 480 96 480z"/></svg>');
+    width: 50px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: -14px;
+    z-index: 11;
+  }
+  .lightbox__prev {
+    right: auto;
+    left: 0;
+    transform: rotate(180deg);
+  }
+  .lightbox__close {
+    //background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>');
+    width: 15px;
+    height: 15px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 12;
+    svg {
+      fill: $red;
+    }
+  }
+  .lightbox-media {
+    .lightbox-media-container {
+      margin-left: 50px;
+      margin-right: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      // align-items: center;
+      // min-height: 100vh;
+      img {
+        max-height: 100vh;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      h2 {
+        justify-content: flex-start;
+        color: $red-light;
+        font-size: 24ps;
+      }
+    }
+  }
+}
