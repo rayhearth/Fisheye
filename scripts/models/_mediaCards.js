@@ -1,26 +1,25 @@
 export class MediaCards {
-    constructor(media) {
+    constructor(medias) {
         // console.log(media)
-        this._id = media.id
-        this._photographerId = media.photographerId
-        this._title = media.title
-        this._likes = media.likes
-        this._date = media.date
-        this._price = media.price
-        if (media.hasOwnProperty("image")) {
+        this._id = medias.id
+        this._photographerId = medias.photographerId
+        this._title = medias.title
+        this._likes = medias.likes
+        this._date = medias.date
+        this._price = medias.price
+        if (medias.hasOwnProperty("image")) {
             this._type = 'image'
-            this._media = media.image
+            this._media = medias.image
             //si le media a pour nom "image" alors il va nous retourner une img
         } else {
             //sinon il nous retourne notre Video
             this._type = 'video'
-            this._media = media.video
+            this._media = medias.video
         }
     }
 
 
     renderMedia() {
-        // console.log(media)
         if (this._type === 'image') {
             return this.renderImage()
         } else {
@@ -32,7 +31,7 @@ export class MediaCards {
         return `
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" media-id=${this._id}>
-                <img role="button" class="picture" src="assets/images/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
+                <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
             </div>
             <div class="media-legend">
                 <p class="media-legend-title">${this._title}</p>
@@ -54,7 +53,7 @@ export class MediaCards {
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" media-id=${this._id}>
                 <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
-                <source src="assets/images/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
+                <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
                 <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"
                 data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
                 <path fill="currentColor"

@@ -10,15 +10,19 @@ export class MediaFactory extends Api {
     try {
       //on reste en attente de la fonction getMediaApi
       let medias = await this.getMediaApi(photographerId)
-      console.log(medias)
+      // console.log(medias)
       //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
-      let renderPicture = new MediaCards(medias)
+      let likes = 0
+      let renderPicture = medias.map(m => {
+        likes += m.likes
+        return new MediaCards(m)})
       console.log(renderPicture)
 
       return {
-        gallery: medias.renderMedia(),
-        lightrender : this.renderAllLightbox(renderPicture),
-        lightbox : medias.map(media => new LightboxContain(media))
+        gallery : medias.map(m => m.renderMedia(this.getMediaApi(photographerId))),
+        totalLikes : likes,
+        // lightrender : this.renderAllLightbox(renderPicture),
+        // lightbox : medias.map(media => new LightboxContain(media))
       }
       //lorsque nous retournons la methode renderAllMedia on lui transmet notre renderPicture
       // return this.renderAllMedia(renderPicture)

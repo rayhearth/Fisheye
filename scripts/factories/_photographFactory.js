@@ -5,6 +5,7 @@ import { PhotographersCards } from '../models/_photographersCards.js'
 /*ma class Photograph hérite de ma class Api*/
 export class PhotographFactory extends Api {
 
+  
   /*méthode pour recupérer tous les photographes*/
   async getAllPhotograph() {
 
@@ -43,14 +44,11 @@ export class PhotographFactory extends Api {
       // console.log(photographerprofile)
       //on cree notre render en lui passant notre photograph profile et on appelle notre methode
       let renderProfile = photographerprofile.renderPhotographHeader()
-      console.log(renderProfile)
+      // console.log(renderProfile)
       // on retourne notre render final avec toutes les infos necessaires
       return renderProfile
     } catch (err) {
       console.log(err)
     }
   }
-
-  
-  
 }

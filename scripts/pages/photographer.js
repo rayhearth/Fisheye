@@ -1,5 +1,5 @@
 import { PhotographFactory } from '../factories/_photographFactory.js'
-// import { MediaFactory } from '../factories/_mediaFactory.js'
+import { MediaFactory } from '../factories/_mediasFactory.js'
 // import { LightboxContain } from '../utils/lightbox.js'
 
 // let data = new Photograph()
@@ -15,15 +15,13 @@ let displayOnePhotograph = async () => {
     let photograph = new PhotographFactory()
     // console.log(photograph)
     let OnePhotograph = await photograph.getOnePhotograph(urlId)
-    console.log(OnePhotograph)
+    // console.log(OnePhotograph)
 
     document.querySelector('#photographer').innerHTML = OnePhotograph
 
     //on recupère le nom du photographe va le h1 et on l'injecte via l'id
     let name = document.querySelector('h1').textContent
     document.querySelector('#photographerName').innerHTML = name
-    
-    
 
 }
 
@@ -33,7 +31,7 @@ let displayAllMedia = async () => {
 
 
     let media = new MediaFactory()
-    // console.log(media)
+    console.log(media)
     let AllMedias = await media.getAllMedia(urlId)
     // let AllMediasLightbox = await media.getAllMedia(urlId)
     // console.log(AllMedias)
