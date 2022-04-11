@@ -1,6 +1,6 @@
 import { PhotographFactory } from '../factories/_photographFactory.js'
-import { MediaFactory } from '../factories/_mediaFactory.js'
-import { LightboxContain } from '../utils/lightbox.js'
+// import { MediaFactory } from '../factories/_mediaFactory.js'
+// import { LightboxContain } from '../utils/lightbox.js'
 
 // let data = new Photograph()
 
@@ -13,7 +13,7 @@ const urlId = urlParams.get('id')
 let displayOnePhotograph = async () => {
 
     let photograph = new PhotographFactory()
-    // console.log(photograph)
+    console.log(photograph)
     let OnePhotograph = await photograph.getOnePhotograph(urlId)
 
     document.querySelector('#photographer').innerHTML = OnePhotograph
