@@ -31,7 +31,7 @@ let displayAllMedia = async () => {
 
 
     let media = new PhotographFactory()
-    console.log(media)
+    // console.log(media)
     let AllMedias = await media.getAllMedia(urlId)
     // let AllMediasLightbox = await media.getAllMedia(urlId)
     // console.log(AllMedias)

@@ -39,7 +39,7 @@ export class PhotographFactory extends Api {
     //on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
     try {
       let Onephotograph = await this.getPhotograph(id)
-      // console.log(Onephotograph)
+      console.log(Onephotograph)
       //on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
       let photographerprofile = new PhotographersCards(Onephotograph)
       // console.log(photographerprofile)
@@ -64,15 +64,16 @@ export class PhotographFactory extends Api {
       let renderPicture = medias.map(m => {
         likes += m.likes
         return new MediaCards(m)})
-      console.log(renderPicture)
+      // console.log(renderPicture)
 
       return {
         gallery : this.renderAllMedias(renderPicture),
+        lightrender : this.renderAllLightbox(renderPicture),
         totalLikes : likes,
         // lightrender : this.renderAllLightbox(renderPicture),
         // lightbox : medias.map(media => new LightboxContain(media))
       }
-      console.log(gallery)
+      // console.log(gallery)
       //lorsque nous retournons la methode renderAllMedia on lui transmet notre renderPicture
       // return this.renderAllMedia(renderPicture)
     } catch (err) {
@@ -90,5 +91,13 @@ export class PhotographFactory extends Api {
     }
     return all
   }
+
+  renderAllLightbox(medias) {
+      let lbo = ''
+      for (let media of medias) {
+        lbo += media.renderLightbox(media)
+      }
+      return lbo
+    }
 
 }
