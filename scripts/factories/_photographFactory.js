@@ -67,15 +67,28 @@ export class PhotographFactory extends Api {
       console.log(renderPicture)
 
       return {
-        gallery : medias.map(m => m.renderMedia(this.getMediaApi(photographerId))),
+        gallery : this.renderAllMedias(renderPicture),
         totalLikes : likes,
         // lightrender : this.renderAllLightbox(renderPicture),
         // lightbox : medias.map(media => new LightboxContain(media))
       }
+      console.log(gallery)
       //lorsque nous retournons la methode renderAllMedia on lui transmet notre renderPicture
       // return this.renderAllMedia(renderPicture)
     } catch (err) {
       console.log(err)
     }
   }
+
+  // Render index
+  renderAllMedias(medias) {
+    /*variable qui recoit le template de renderOnePhotograph*/
+    let all = ''
+    // pour chacun des photographes récup le render
+    for (let media of medias) {
+      all += media.renderMedia(media)
+    }
+    return all
+  }
+
 }
