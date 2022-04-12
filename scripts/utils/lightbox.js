@@ -13,7 +13,8 @@ const openLightbox = () =>{
 }
 
 let startlightboxlistener = () => {
-    all =document.querySelectorAll('.mediaLink')
+    all = document.querySelectorAll('.mediaLink')
+    // console.log(all)
     for(let m of all){
         m.addEventListener('click', openLightbox)
     }

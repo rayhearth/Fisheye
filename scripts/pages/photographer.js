@@ -22,6 +22,10 @@ let displayOnePhotograph = async () => {
     //on recupère le nom du photographe va le h1 et on l'injecte via l'id
     let name = document.querySelector('h1').textContent
     document.querySelector('#photographerName').innerHTML = name
+    
+    
+    startcontactlistener()
+
 
 }
 
@@ -33,12 +37,12 @@ let displayAllMedia = async () => {
     let media = new PhotographFactory()
     // console.log(media)
     let AllMedias = await media.getAllMedia(urlId)
-    // let AllMediasLightbox = await media.getAllMedia(urlId)
     // console.log(AllMedias)
 
     document.querySelector('.galleryContainer').innerHTML = AllMedias.gallery
     document.querySelector('.lightbox-media').innerHTML = AllMedias.lightrender
 
+    startlightboxlistener()
 }
 
 window.addEventListener('load', displayAllMedia())

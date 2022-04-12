@@ -39,7 +39,7 @@ export class PhotographFactory extends Api {
     //on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
     try {
       let Onephotograph = await this.getPhotograph(id)
-      console.log(Onephotograph)
+      // console.log(Onephotograph)
       //on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
       let photographerprofile = new PhotographersCards(Onephotograph)
       // console.log(photographerprofile)
