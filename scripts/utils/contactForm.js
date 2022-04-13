@@ -33,6 +33,7 @@ function closeFieldError(el) {
 
 
 
+
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
     document.querySelector('#closeModal').addEventListener('click', closeModal)

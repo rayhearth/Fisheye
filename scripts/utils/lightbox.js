@@ -9,15 +9,19 @@ let lightbox = document.querySelector("#lightbox")
 let prevBtn = document.querySelector('#lightbox__prev')
 let nextBtn = document.querySelector('#lightbox__next')
 
+let all = []
+let poition = null
 
 
-const openLightbox = () =>{
+
+const openLightbox = () => {
+    //Récupérer l'index du media cliquer
     document.body.classList.add('overflow')
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
-    lightbox-media.scrollTo(0, 0)
+    // lightbox-media.scrollTo(0, 0)
     
-    lightbox.setAttribute('aria-hidden', 'false')
+    // lightbox.setAttribute('aria-hidden', 'false')
     lightbox.style.display = ''
 }
 
@@ -27,15 +31,15 @@ const closeLightbox = () => {
     document.body.classList.remove('overflow')
     document.removeEventListener('Keyup', this.onKeyUp)
     document.querySelector('#openModal').focus()
-    lightbox.setAttribute('aria-hidden', 'true')
-
+    // lightbox.setAttribute('aria-hidden', 'true')
+    
     lightbox.style.display = 'none'
-  }
+}
 
 let startlightboxlistener = () => {
-    all = document.querySelectorAll('.mediaLink')
+    all = document.querySelectorAll('.mediaLink', '.picture')
     // console.log(all)
-    for(let m of all){
+    for (let m of all) {
         m.addEventListener('click', openLightbox)
     }
 }
