@@ -1,8 +1,5 @@
 import { PhotographFactory } from '../factories/_photographFactory.js'
-// import { MediaFactory } from '../factories/_mediasFactory.js'
-// import { LightboxContain } from '../utils/lightbox.js'
 
-// let data = new Photograph()
 
 
 //recherche du photographe via son id 
@@ -43,7 +40,29 @@ let displayAllMedia = async () => {
     // document.querySelector('.lightbox-media').innerHTML = AllMedias.lightrender
 
     startlightboxlistener()
+    //appel de la methode des likes
     media.cuntMediaLike()
+
+    let filterBtns = document.querySelectorAll('.filterOption')
+    for (btn of filterBtns) {
+        mediaSort(btn)
+    }
+
+    let mediaSort = (btn) => {
+        btn.addEventListener('click', (e)=>{
+            let all=[...document.querySelectorAll('mediaLink')]
+            console.log(all)
+
+            all.sort((a,b)=> {
+                swicht(e.target.id){
+                    case 'filterTitle':
+                        return a.dataset.title.localCompare(b.dataset.title)
+                        break
+                }
+            })
+        })
+    }
+
 }
 
 window.addEventListener('load', displayAllMedia())
