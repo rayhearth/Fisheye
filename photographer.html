@@ -63,19 +63,16 @@
             <label class="form-label" for="firstName">Prénom</label>
             <input class="form-control" type="text" id="first" name="firstName" aria-labelledby="firstName"
               aria-required="true" />
-            <div class="error" id="firstError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="lastName">Nom</label>
             <input class="form-control" type="text" id="last" name="lastName" aria-labelledby="lastName"
               aria-required="true" />
-            <div class="error" id="lastError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="email">E-mail</label>
             <input class="form-control" type="email" id="email" name="email" aria-labelledby="email"
               aria-required="true" />
-            <div class="error" id="mailError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="textArea">Votre message</label>
@@ -115,7 +112,7 @@
         </button>
         <!-- on injecte le render all lightbox ds la lightboxmedia -->
         <div class="lightbox-media" id="light"></div>
-        <button class="lightbox__next" id="lightbox__next aria-label=" Next media" data-lightbox-next>
+        <button class="lightbox__next" id="lightbox__next aria-label="Next media" data-lightbox-next>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
             <path
               d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z" />
@@ -136,7 +133,7 @@
   <!--	FOOTER------------------------------------------------>
   <footer id="footer" class="footer" aria-label="total des mentions j'aime et prix par jour">
     <div class="footerInfos">
-      <span class="footerInfosCunt" aria-label="total des mentions j'aime">680</span>
+      <span class="footerInfosCunt" id="footerInfosCunt" aria-label="total des mentions j'aime">680</span>
       <svg class="svg-inline--fa fa-heart footerInfosHeart" aria-label="icone coeur" tabindex="-1" aria-hidden="true"
         focusable="false" data-prefix="fas" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 512 512" data-fa-i2svg="">
@@ -155,3 +152,5 @@
 </body>
 
 </html>
+
+

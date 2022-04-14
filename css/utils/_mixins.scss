@@ -1,0 +1,60 @@
+@mixin gradiant-hearth {
+  .fas {
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.7rem;
+    font-weight: 100;
+    color: $red;
+    // transform-origin: 50%, 50%;
+  }
+  input {
+    visibility: hidden;
+  }
+  input[type="checkbox"]:checked ~ i {
+    font-weight: 900;
+    background: linear-gradient(45deg, $red-light 0%, $red 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
+  &:hover {
+    cursor: pointer;
+    i {
+      animation: full-hearth 1.2s both;
+      font-weight: 900;
+      background: linear-gradient(45deg, $red-light 0%, $red 100%
+      );
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+    }
+  }
+}
+
+/***** ANIMATIONS *****/
+
+/*anim-hearth*/
+@keyframes full-hearth {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  15% {
+    transform: scaleY(0.33);
+  }
+  25% {
+    transform: scaleY(0.51);
+  }
+  43% {
+    transform: scaleY(0.7);
+    opacity: 0.5;
+  }
+  68% {
+    transform: scaleY(0.87);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}

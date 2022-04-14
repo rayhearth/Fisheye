@@ -43,6 +43,7 @@ let displayAllMedia = async () => {
     // document.querySelector('.lightbox-media').innerHTML = AllMedias.lightrender
 
     startlightboxlistener()
+    media.cuntMediaLike()
 }
 
 window.addEventListener('load', displayAllMedia())

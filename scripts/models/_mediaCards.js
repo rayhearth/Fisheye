@@ -51,7 +51,7 @@ export class MediaCards {
     renderImage() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" media-id=${this._id}>
+            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id}>
                 <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
             </div>
             <div class="media-legend">
@@ -72,7 +72,7 @@ export class MediaCards {
     renderVideo() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" media-id=${this._id}>
+            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id}>
                 <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
                 <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
                 <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"

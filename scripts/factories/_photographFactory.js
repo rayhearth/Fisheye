@@ -63,7 +63,8 @@ export class PhotographFactory extends Api {
       let likes = 0
       let renderPicture = medias.map(m => {
         likes += m.likes
-        return new MediaCards(m)})
+        return new MediaCards(m)
+      })
       // console.log(renderPicture)
 
       return {
@@ -78,6 +79,20 @@ export class PhotographFactory extends Api {
       // return this.renderAllMedia(renderPicture)
     } catch (err) {
       console.log(err)
+    }
+  }
+
+  // Ajout des likes et calcul total
+  cuntMediaLike() {
+    let listMedias = document.querySelectorAll('.media-legend-like')
+    for(let m of listMedias){
+      m.addEventListener('click' , e => {
+        e.preventDefault()
+        let span = e.target.parentNode.children[0]
+        span.textContent = parseInt(span.textContent) + 1
+        let totalLikes = document.querySelector('#footerInfosCunt')
+        totalLikes.textContent = parseInt(span.textContent) + 1
+      })
     }
   }
 
