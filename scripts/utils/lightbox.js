@@ -20,10 +20,9 @@ let openLightbox = (e) => {
     window.scrollTo(0, 0)
     // lightbox-media.scrollTo(0, 0)
     let all = e.target.parentNode.children[0]
-    // console.log(all)
+    console.log(all)
     let index = [...document.querySelectorAll('div.mediaLink')].indexOf('div.mediaLink')
-    // console.log(index)
-    all.textContent = 
+    console.log(index)
     document.querySelector('.lightbox-media-container').innerHTML = all.renderLightbox
     
     // lightbox.setAttribute('aria-hidden', 'false')
@@ -35,7 +34,7 @@ let renderLightbox = () => {
     let mediaInLightbox = document.querySelector("lightbox-container")
         if(mediaInLightbox.hasOwnProperty("image")) {
             return `
-            <div class="lightbox-media-container" id=>
+            <div class="lightbox-media-container"id=${this._id}>
                 <img class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
                 <h2 id="lightbox-media-title" class="lightbox-media-title" data-lightbox-caption>${this._title}</h2>
             </div>`
