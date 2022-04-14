@@ -21,8 +21,8 @@ let closeModal = (e) => {
     modal.getAttribute("aria-hidden", "true")
 }
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
-/*fields error function*/
 
+/*fields error function*/
 function showfieldError(el) {
     el.closest('form-group').dataset.errorVisible = true
 }

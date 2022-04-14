@@ -40,7 +40,7 @@ let displayAllMedia = async () => {
     // console.log(AllMedias)
 
     document.querySelector('.galleryContainer').innerHTML = AllMedias.gallery
-    document.querySelector('.lightbox-media').innerHTML = AllMedias.lightrender
+    // document.querySelector('.lightbox-media').innerHTML = AllMedias.lightrender
 
     startlightboxlistener()
 }
