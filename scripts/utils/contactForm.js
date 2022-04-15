@@ -1,6 +1,11 @@
+// DOM Elements
+
+let modal = document.querySelector('#contactModal')
 let openModalBtn = document.querySelector('#openModal')
 let closeModalBtn = document.querySelectorAll('.closeModal')
+
 let form = document.forms['contactForm']
+// console.log(form)
 
 let OpenModal = (e) => {
     document.body.classList.add('modal-open')
@@ -8,8 +13,8 @@ let OpenModal = (e) => {
     window.scrollTo(0, 0)
     // modal.scrollTo(0, 0)
 
-    contactModal.getAttribute("aria-hidden", "false")
-
+    // contactModal.getAttribute("aria-hidden", "false")
+    // console.log(contactModal)
     form.reset()
     form.style.display = ''
 }
@@ -18,21 +23,11 @@ let closeModal = (e) => {
     e.preventDefault
     document.body.classList.remove('modal-open')
     document.body.classList.remove('overflow')
-    contatcModal.getAttribute("aria-hidden", "true")
+    // contatcModal.getAttribute("aria-hidden", "true")
 }
+
+
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
-
-/*fields error function*/
-
-function showfieldError(el) {
-    el.closest('form-group').dataset.errorVisible = true
-}
-
-function closeFieldError(el) {
-    el.closest('form-group').dataset.errorVisible = null
-}
-
-
 
 
 let startcontactlistener = () => {
@@ -41,8 +36,9 @@ let startcontactlistener = () => {
 
 
     /*Validation form and listener*/
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        console.log('gfdgf')
 
         // Expression for fields
         const verifMail = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
@@ -54,30 +50,35 @@ let startcontactlistener = () => {
         // Firstname - min 2 char & not empty
         if (!form.elements['first'].value.trim().match(textFormat)) {
             formFlag = false
-            showFieldError(form.element['firstName'])
+            firstError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom'
         } else {
-            closeFieldError(form.element['firstName'])
+            firstError.innerHTML = ''
+            formFlag = true
         }
 
         // Lastname - min 2 char & not empty
         if (!form.elements['last'].value.trim().match(textFormat)) {
             formFlag = false
-            showFieldError(form.element['firstName'])
+            lastError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.'
         } else {
-            closeFieldError(form.element['firstName'])
+            lastError.innerHTML = ''
+            formFlag = true
         }
 
         // email validity
         if (!form.elements['email'].value.trim().match(verifMail)) {
             formFlag = false
-            showFieldError(form.element['firstName'])
+            mailError.textContent = 'L\'adresse email n\'est pas Valide.'
         } else {
-            closeFieldError(form.element['firstName'])
+            mailError.innerHTML = ''
+            formFlag = true
         }
 
         //Check validation errors
         if (!formFlag) {
             return false
         }
+
+        closeModal()
     })
 }

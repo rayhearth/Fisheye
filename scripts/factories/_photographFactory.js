@@ -6,10 +6,9 @@ import { MediaCards } from '../models/_mediaCards.js'
 /*ma class Photograph hérite de ma class Api*/
 export class PhotographFactory extends Api {
 
-  
+
   /*méthode pour recupérer tous les photographes*/
   async getAllPhotograph() {
-
     try {
       /*on se met en attente des informations de note class API*/
       let photographs = await this.get()
@@ -58,41 +57,23 @@ export class PhotographFactory extends Api {
     try {
       //on reste en attente de la fonction getMediaApi
       let medias = await this.getMediaApi(photographerId)
-      // console.log(medias)
+      console.log(medias)
       //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
       let likes = 0
+      let position = -1
       let renderPicture = medias.map(m => {
         likes += m.likes
-        return new MediaCards(m)
+        position++
+        return new MediaCards(m, position)
       })
       // console.log(renderPicture)
-
       return {
-        gallery : this.renderAllMedias(renderPicture),
-        lightrender : this.renderAllLightbox(renderPicture),
-        totalLikes : likes,
-        // lightrender : this.renderAllLightbox(renderPicture),
-        // lightbox : medias.map(media => new LightboxContain(media))
+        gallery: this.renderAllMedias(renderPicture),
+        // console.log(gallery)
+        totalLikes: likes,
       }
-      // console.log(gallery)
-      //lorsque nous retournons la methode renderAllMedia on lui transmet notre renderPicture
-      // return this.renderAllMedia(renderPicture)
     } catch (err) {
       console.log(err)
-    }
-  }
-
-  // Ajout des likes et calcul total
-  cuntMediaLike() {
-    let listMedias = document.querySelectorAll('.media-legend-like')
-    for(let m of listMedias){
-      m.addEventListener('click' , e => {
-        e.preventDefault()
-        let span = e.target.parentNode.children[0]
-        span.textContent = parseInt(span.textContent) + 1
-        let totalLikes = document.querySelector('#footerInfosCunt')
-        totalLikes.textContent = parseInt(span.textContent) + 1
-      })
     }
   }
 
@@ -107,12 +88,17 @@ export class PhotographFactory extends Api {
     return all
   }
 
-  renderAllLightbox(medias) {
-      let lbo = ''
-      for (let media of medias) {
-        lbo += media.renderLightbox(media)
-      }
-      return lbo
+  // Ajout des likes et calcul total
+  cuntMediaLike() {
+    let listMedias = document.querySelectorAll('.media-legend-like')
+    for (let m of listMedias) {
+      m.addEventListener('click', e => {
+        e.preventDefault()
+        let span = e.target.parentNode.children[0]
+        span.textContent = parseInt(span.textContent) + 1
+        let totalLikes = document.querySelector('#footerInfosCunt')
+        totalLikes.textContent = parseInt(span.textContent) + 1
+      })
     }
-
+  }
 }

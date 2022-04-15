@@ -1,5 +1,5 @@
 export class MediaCards {
-    constructor(medias) {
+    constructor(medias, position) {
         // console.log(media)
         this._id = medias.id
         this._photographerId = medias.photographerId
@@ -7,6 +7,7 @@ export class MediaCards {
         this._likes = medias.likes
         this._date = medias.date
         this._price = medias.price
+        this._position = position
         if (medias.hasOwnProperty("image")) {
             this._type = 'image'
             this._media = medias.image
@@ -18,28 +19,7 @@ export class MediaCards {
         }
     }
 
-    renderLightbox(){
-        if(this.type === 'image') {
-            return `
-            <div class="lightbox-media-container" id=${this._id}>
-                <img class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
-                <h2 id="lightbox-media-title" class="lightbox-media-title" data-lightbox-caption>${this._title}</h2>
-            </div>`
-        } else {
-            return `
-            <div class="lightbox-media-container" id=${this._id}>
-                <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
-                <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
-                <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"
-                data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                <path fill="currentColor"
-                d="M384 112v288c0 26.51-21.49 48-48 48h-288c-26.51 0-48-21.49-48-48v-288c0-26.51 21.49-48 48-48h288C362.5 64 384 85.49 384 112zM576 127.5v256.9c0 25.5-29.17 40.39-50.39 25.79L416 334.7V177.3l109.6-75.56C546.9 87.13 576 102.1 576 127.5z">
-                </path>
-                </svg>
-                <h2 id="lightbox-media-title" class="lightbox-media-title" data-lightbox-caption>${this._title}</h2>
-            </div>`
-        }
-    }
+    
     renderMedia() {
         if (this._type === 'image') {
             return this.renderImage()
@@ -51,7 +31,7 @@ export class MediaCards {
     renderImage() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id}>
+            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
                 <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
             </div>
             <div class="media-legend">
@@ -72,7 +52,7 @@ export class MediaCards {
     renderVideo() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id}>
+            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
                 <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
                 <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
                 <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"

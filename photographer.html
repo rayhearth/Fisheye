@@ -63,16 +63,19 @@
             <label class="form-label" for="firstName">Prénom</label>
             <input class="form-control" type="text" id="first" name="firstName" aria-labelledby="firstName"
               aria-required="true" />
+              <div class="error" id="firstError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="lastName">Nom</label>
             <input class="form-control" type="text" id="last" name="lastName" aria-labelledby="lastName"
               aria-required="true" />
+              <div class="error" id="lastError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="email">E-mail</label>
             <input class="form-control" type="email" id="email" name="email" aria-labelledby="email"
               aria-required="true" />
+              <div class="error" id="mailError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="textArea">Votre message</label>
@@ -103,7 +106,7 @@
       <!-- on injecte le render all media ds la gallery container -->
       <div class="galleryContainer"></div>
 
-      <div class="lightbox" id="ligthbox" arial-label="image closeup view" role="dialog">
+      <div class="lightbox" id="lightbox" arial-label="image closeup view" role="dialog">
         <button class="lightbox__prev" id="lightbox__prev" aria-label="Previous media" data-lightbox-prev>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
             <path
