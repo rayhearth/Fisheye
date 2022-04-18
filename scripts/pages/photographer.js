@@ -31,8 +31,8 @@ let displayAllMedia = async () => {
     let media = new PhotographFactory()
     // console.log(media)
     let AllMedias = await media.getAllMedia(urlId)
-    console.log(urlId)
-    console.log(AllMedias)
+    // console.log(urlId)
+    // console.log(AllMedias)
 
     document.querySelector('.galleryContainer').innerHTML = AllMedias.gallery
 

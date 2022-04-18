@@ -27,58 +27,63 @@ let closeModal = (e) => {
 }
 
 
+let validation = (e) => {
+    // Expression for fields
+    const verifMail = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
+    const textFormat = /^[a-z\é\è\-\^\']{2,}$/i
+
+    //Form flag validation
+    let formFlag = true
+
+    // Firstname - min 2 char & not empty
+    if (!form.elements['first'].value.trim().match(textFormat)) {
+        formFlag = false
+        firstError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom'
+    } else {
+        firstError.innerHTML = ''
+        formFlag = true
+    }
+
+    // Lastname - min 2 char & not empty
+    if (!form.elements['last'].value.trim().match(textFormat)) {
+        formFlag = false
+        lastError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.'
+    } else {
+        lastError.innerHTML = ''
+        formFlag = true
+    }
+
+    // email validity
+    if (!form.elements['email'].value.trim().match(verifMail)) {
+        formFlag = false
+        mailError.textContent = 'L\'adresse email n\'est pas Valide.'
+    } else {
+        mailError.innerHTML = ''
+        formFlag = true
+    }
+
+    //Check validation errors
+    if (!formFlag) {
+        return false
+        // modalError.textContent='Veuillez renseigner tous les champs'
+    } else{
+        return true
+    }
+
+}
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
 
 
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
     document.querySelector('#closeModal').addEventListener('click', closeModal)
-
-
-    /*Validation form and listener*/
-    form.addEventListener('submit', function (e) {
-        e.preventDefault()
-        console.log('gfdgf')
-
-        // Expression for fields
-        const verifMail = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
-        const textFormat = /^[a-z\é\è\-\^\']{2,}$/i
-
-        //Form flag validation
-        let formFlag = true
-
-        // Firstname - min 2 char & not empty
-        if (!form.elements['first'].value.trim().match(textFormat)) {
-            formFlag = false
-            firstError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom'
-        } else {
-            firstError.innerHTML = ''
-            formFlag = true
-        }
-
-        // Lastname - min 2 char & not empty
-        if (!form.elements['last'].value.trim().match(textFormat)) {
-            formFlag = false
-            lastError.textContent = 'Veuillez entrer 2 caractères ou plus pour le champ du nom.'
-        } else {
-            lastError.innerHTML = ''
-            formFlag = true
-        }
-
-        // email validity
-        if (!form.elements['email'].value.trim().match(verifMail)) {
-            formFlag = false
-            mailError.textContent = 'L\'adresse email n\'est pas Valide.'
-        } else {
-            mailError.innerHTML = ''
-            formFlag = true
-        }
-
-        //Check validation errors
-        if (!formFlag) {
-            return false
-        }
-
+    document.querySelector('#sendForm').addEventListener('click', function(e){
+        // e.preventDefault()
+        validation()
         closeModal()
     })
+
+    /*Validation form and listener*/
+    
+
 }

@@ -77,6 +77,12 @@ main {
                         top: 35%;
                         left: 50%;
                     }
+                    p {
+                        font-size: 1.5rem;
+                        color: $red;
+                        position: relative;
+                        padding-top: 20px;
+                    }
                 }
                 .media-legend {
                     display: flex;
@@ -84,12 +90,9 @@ main {
                     align-items: center;
                     // padding: 5px 0;
                     width: 100%;
-                    max-width: 350px;
-                    height: 70px;
+                    // max-width: 350px;
+                    height: 50px;
                     color: $red;
-                    .media-legend-title {
-                        font-size: 1.5rem;
-                    }
                     span {
                         font-size: 1.5rem;
                         margin-right: 5px;
@@ -99,6 +102,9 @@ main {
                         align-items: center;
                         justify-content: flex-end;
                         flex-direction: row;
+                        position: absolute;
+                        right: 15px;
+                        bottom: 50px;
                         cursor: pointer;
                         svg {
                             height: 24px;

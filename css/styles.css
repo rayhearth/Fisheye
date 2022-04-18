@@ -1,3 +1,51 @@
+/***** ANIMATIONS *****/
+/*anim-hearth*/
+@-webkit-keyframes full-hearth {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  15% {
+    transform: scaleY(0.33);
+  }
+  25% {
+    transform: scaleY(0.51);
+  }
+  43% {
+    transform: scaleY(0.7);
+    opacity: 0.5;
+  }
+  68% {
+    transform: scaleY(0.87);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+@keyframes full-hearth {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  15% {
+    transform: scaleY(0.33);
+  }
+  25% {
+    transform: scaleY(0.51);
+  }
+  43% {
+    transform: scaleY(0.7);
+    opacity: 0.5;
+  }
+  68% {
+    transform: scaleY(0.87);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
 /*****RESET*****/
 * {
   margin: 0;
@@ -39,11 +87,13 @@ img.logo {
 }
 
 .lightboxOpen .lightbox {
-  display: block;
+  display: flex;
 }
 
 .lightbox {
   display: none;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -90,23 +140,21 @@ img.logo {
 .lightbox .lightbox__close svg {
   fill: #901C1C;
 }
-.lightbox .lightbox-media .lightbox-media-container {
-  margin-left: 50px;
-  margin-right: 50px;
+.lightbox .lightbox-media {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100vh;
 }
-.lightbox .lightbox-media .lightbox-media-container img {
+.lightbox .lightbox-media img {
   max-height: 100vh;
   max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.lightbox .lightbox-media .lightbox-media-container h2 {
+.lightbox .lightbox-media p {
   justify-content: flex-start;
   color: #D3573C;
-  font-size: 24ps;
+  font-size: 24px;
 }
 
 .contactBtn {
@@ -403,17 +451,19 @@ main section.portfolio .galleryContainer article .mediaCard svg {
   top: 35%;
   left: 50%;
 }
+main section.portfolio .galleryContainer article .mediaCard p {
+  font-size: 1.5rem;
+  color: #901C1C;
+  position: relative;
+  padding-top: 20px;
+}
 main section.portfolio .galleryContainer article .media-legend {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 350px;
-  height: 70px;
+  height: 50px;
   color: #901C1C;
-}
-main section.portfolio .galleryContainer article .media-legend .media-legend-title {
-  font-size: 1.5rem;
 }
 main section.portfolio .galleryContainer article .media-legend span {
   font-size: 1.5rem;
@@ -424,6 +474,9 @@ main section.portfolio .galleryContainer article .media-legend .media-legend-lik
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
+  position: absolute;
+  right: 15px;
+  bottom: 50px;
   cursor: pointer;
 }
 main section.portfolio .galleryContainer article .media-legend .media-legend-like svg {

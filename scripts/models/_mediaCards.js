@@ -33,9 +33,10 @@ export class MediaCards {
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
                 <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
+                <p class="media-legend-title">${this._title}</p>
+
             </div>
             <div class="media-legend">
-                <p class="media-legend-title">${this._title}</p>
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
                     <span class="media-legend-cunt" id="like-cunt">${this._likes}</span>
                     <svg class="hearth" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hearth" role="img"
