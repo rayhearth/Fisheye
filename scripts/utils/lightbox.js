@@ -7,11 +7,12 @@ let lightboxTitle = document.querySelector('#lightbox-media-title')
 let lightbox = document.querySelector("#lightbox")
 // console.log(lightbox)
 let prevBtn = document.querySelector('#lightbox__prev')
+// console.log(prevBtn)
 let nextBtn = document.querySelector('#lightbox__next')
-
+// console.log(nextBtn)
+let index = null
 
 let all = []
-let position = null
 
 
 
@@ -23,50 +24,36 @@ const openLightbox = (e) => {
     // lightbox-media.scrollTo(0, 0)
     let currentMedia = e.target.parentNode
 
-    let index = currentMedia.getAttribute('position')
+    index = parseInt(currentMedia.getAttribute('position'))
     console.log(index)
-    document.querySelector('#light').innerHTML = currentMedia.innerHTML
+
     // console.log(document.querySelector('#light'))
 
     lightbox.setAttribute('aria-hidden', 'false')
     lightbox.style.display = ''
 }
 
-//afficher le prochain média
-//si on arrive en fin de tableau des medias on repart au début.
-const next = (e) => {
-    e.preventdefault
-    // let index = currentMedia.getAttribute('position')
-    // if(i===index.lenght -1){
-    //     i=-1 //on revient a notre valeur 0
-    // } //si on arrive au bout de nos medias
-    // openLightbox(index[i+1])
 
-    for (let i = 0; i < index.length; i++) {
-        if (index[i] == currentMedia) {
-            if (i == index.lenght) {
-                currentMedia = index[0]
-            } else {
-                currentMedia = index[++i]
-            }
-            break
-        }
+//si on arrive en fin de tableau des medias on repart au début.
+const next = () => {
+    console.log(index)
+    index = index + 1
+    
+    if(index == all.length){
+        
+        index = 0
     }
+    console.log(index)
+    console.log(all)
+    document.querySelector('#light').innerHTML = all[index].innerHTML
 }
 
 const previous = () => {
-    for (let i = 0; i < index.length; i++) {
-        for (let i = 0; i < index.length; i++) {
-            if (index[i] == currentMedia) {
-                if (i == index.lenght) {
-                    currentMedia = index[0]
-                } else {
-                    currentMedia = index[--i]
-                }
-                break
-            }
-        }
+    index = index - 1
+    if(index == -1){
+        index = all.length-1
     }
+    document.querySelector('#light').innerHTML = all[index].innerHTML
 }
 //Fermeture de la lightbox
 const closeLightbox = () => {
@@ -84,11 +71,11 @@ const closeLightbox = () => {
 
 let startlightboxlistener = () => {
     all = document.querySelectorAll('.mediaLink')
-    // console.log(all)
+    console.log(all)
     for (let m of all) {
         m.addEventListener('click', openLightbox)
     }
+    nextBtn.addEventListener('click', next)
+    prevBtn.addEventListener('click', previous)
 }
 closeLightboxBtn.addEventListener('click', closeLightbox)
-nextBtn.addEventListener('click', next)
-prevBtn.addEventListener('click', previous)
