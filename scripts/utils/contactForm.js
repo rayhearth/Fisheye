@@ -66,24 +66,23 @@ let validation = (e) => {
     if (!formFlag) {
         return false
         // modalError.textContent='Veuillez renseigner tous les champs'
-    } else{
+    } else {
         return true
     }
 
 }
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
 
-
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
-    document.querySelector('#closeModal').addEventListener('click', closeModal)
-    document.querySelector('#sendForm').addEventListener('click', function(e){
+    document.querySelector('#sendForm').addEventListener('click', function (e) {
         // e.preventDefault()
         validation()
         closeModal()
     })
+    document.querySelector('#closeModal').addEventListener('click', closeModal)
 
     /*Validation form and listener*/
-    
+
 
 }

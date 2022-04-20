@@ -44,6 +44,7 @@
     <!--	SECTION PHOTOGRAPHER------------------------------------------------>
     <section id="photographer" class="photographer">
     </section>
+    <!-- CONTACT MODAL -->
     <div class="contactModal" id="contactModal" role="dialog" aria-labelledby="contactModal-title" aria-hidden="true">
       <div class="content">
         <div class="headerModal">
@@ -63,19 +64,19 @@
             <label class="form-label" for="firstName">Prénom</label>
             <input class="form-control" type="text" id="first" name="firstName" aria-labelledby="firstName"
               aria-required="true" />
-              <div class="error" id="firstError"></div>
+            <div class="error" id="firstError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="lastName">Nom</label>
             <input class="form-control" type="text" id="last" name="lastName" aria-labelledby="lastName"
               aria-required="true" />
-              <div class="error" id="lastError"></div>
+            <div class="error" id="lastError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="email">E-mail</label>
             <input class="form-control" type="email" id="email" name="email" aria-labelledby="email"
               aria-required="true" />
-              <div class="error" id="mailError"></div>
+            <div class="error" id="mailError"></div>
           </div>
           <div class="formData">
             <label class="form-label" for="textArea">Votre message</label>
@@ -84,7 +85,7 @@
           </div>
         </form>
         <button class="contactBtn closeModal" id="sendForm" type="submit" value="Envoyer">Envoyer</button>
-        <div class="error" id="modalError"></div>
+        <!-- <div class="error" id="modalError"></div> -->
       </div>
     </div>
 
@@ -96,9 +97,9 @@
         <form class="filter-form" action="#" method="POST">
           <label for="filter-select">Trier par : </label>
           <select name="filter-select" id="filter-select">
-            <option class="filterOption filterTitle" value="Popularite" selected>Popularité</option>
-            <option class="filterOption" value="Date">Date</option>
-            <option class="filterOption" value="Titre">Titre</option>
+            <option class="filterOption" id="pop" value="Popularite" selected>Popularité</option>
+            <option class="filterOption" id="date" value="Date">Date</option>
+            <option class="filterOption" id="title" value="Titre">Titre</option>
           </select>
         </form>
       </div>
@@ -114,7 +115,7 @@
               d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z" />
           </svg>
         </button>
-        <!-- on injecte le render all lightbox ds la lightboxmedia -->
+        <!-- on injecte nos medias ds la lightboxmedia -->
         <div class="lightbox-media" id="light"></div>
         <button class="lightbox__next" id="lightbox__next" aria-label="Next media" data-lightbox-next>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
@@ -156,5 +157,3 @@
 </body>
 
 </html>
-
-

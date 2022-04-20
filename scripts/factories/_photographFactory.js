@@ -70,7 +70,7 @@ export class PhotographFactory extends Api {
       return {
         gallery: this.renderAllMedias(renderPicture),
         // console.log(gallery)
-        totalLikes: likes,
+        totalLikes: likes
       }
     } catch (err) {
       console.log(err)
@@ -90,14 +90,21 @@ export class PhotographFactory extends Api {
 
   // Ajout des likes et calcul total
   cuntMediaLike() {
-    let listMedias = document.querySelectorAll('.media-legend-like')
-    for (let m of listMedias) {
-      m.addEventListener('click', e => {
+    let allLegend = document.querySelectorAll('.media-legend-like')
+    // console.log(allLegend)
+    for (let h of allLegend) {
+      // console.log(h)
+      h.addEventListener('click', e => {
         e.preventDefault()
-        let span = e.target.parentNode.children[0]
-        span.textContent = parseInt(span.textContent) + 1
+        let legend = e.target.parentNode
+        // console.log(legend)
+        let mediaLegendCunt = legend.children[0]//je cible le premier ele de mon array pr recup mon chiffre like
+        // console.log(mediaLegendCunt)
+        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
+
         let totalLikes = document.querySelector('#footerInfosCunt')
-        totalLikes.textContent = parseInt(span.textContent) + 1
+        // console.log(totalLikes)
+        totalLikes.textContent = parseInt(mediaLegendCunt.textContent) + 1
       })
     }
   }

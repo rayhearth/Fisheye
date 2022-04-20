@@ -3,7 +3,6 @@ let openLightboxBtn = document.querySelector('.mediaLink')
 let closeLightboxBtn = document.querySelector('#lightbox__close')
 
 let lightboxTitle = document.querySelector('#lightbox-media-title')
-
 let lightbox = document.querySelector("#lightbox")
 // console.log(lightbox)
 let prevBtn = document.querySelector('#lightbox__prev')
@@ -11,7 +10,6 @@ let prevBtn = document.querySelector('#lightbox__prev')
 let nextBtn = document.querySelector('#lightbox__next')
 // console.log(nextBtn)
 let index = null
-
 let all = []
 
 
@@ -25,33 +23,27 @@ const openLightbox = (e) => {
     let currentMedia = e.target.parentNode
 
     index = parseInt(currentMedia.getAttribute('position'))
-    console.log(index)
-
+    // console.log(index)
     // console.log(document.querySelector('#light'))
-
     lightbox.setAttribute('aria-hidden', 'false')
     lightbox.style.display = ''
 }
 
 
-//si on arrive en fin de tableau des medias on repart au début.
 const next = () => {
-    console.log(index)
     index = index + 1
-    
-    if(index == all.length){
-        
+    if (index == all.length) {
         index = 0
     }
-    console.log(index)
-    console.log(all)
+    // console.log(index)
+    // console.log(all)
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
 
 const previous = () => {
     index = index - 1
-    if(index == -1){
-        index = all.length-1
+    if (index == -1) {
+        index = all.length - 1
     }
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
@@ -70,9 +62,9 @@ const closeLightbox = () => {
 //Branchement des listener
 
 let startlightboxlistener = () => {
-    all = document.querySelectorAll('.mediaLink')
-    console.log(all)
-    for (let m of all) {
+    all = document.querySelectorAll('.mediaLink')//on recupere tous nos media
+    // console.log(all)
+    for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
     }
     nextBtn.addEventListener('click', next)
