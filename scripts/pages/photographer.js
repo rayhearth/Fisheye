@@ -43,26 +43,39 @@ let displayAllMedia = async () => {
 
     let filterBtns = document.querySelectorAll('.filterOption')
     // console.log(filterBtns)
-    let mediasFiltered = document.querySelectorAll('.galleryContainer')
     
-    // for (let btn of filterBtns) {
-    //     // console.log(btn)
-    //     btn.addEventListener('change', mediaSort)
-    // }
-
+    for (let btn of filterBtns) {
+        // console.log(btn)
+        mediaSort(btn)
+    }
     
-    filterBtns.forEach(filter => {
-        filter.addEventListener('change', e => {
-            switch (e.target.id) {
-                case 'pop':
-                    mediasFiltered.sort(function (a, b) {
-                        return a.dataset.cuntMediaLike.localeCompare(b.dataset.cuntMediaLike)
-                    })
-                    break
-            }
+    let mediaSort = (btn) => {
+        btn.addEventListener('click', (e) =>{
+            let mediasFiltered = [...document.querySelectorAll('.galleryContainer')]
+            console.log(mediasFiltered)            
         })
+    }
+    // mediasFiltered.addEventListener("change", (e) => {
+    //     switch (e.target.id) {
+    //         case 'pop':
+    //             mediasFiltered.sort(function (a, b) {
+    //                 return a.dataset.cuntMediaLike.localeCompare(b.dataset.cuntMediaLike)
+    //             })
+    //             break
+    //     }
+
+    // filterBtns.forEach(filter => {
+    //     filter.addEventListener('change', (e) => {
+    //         switch (e.target.id) {
+    //             case 'pop':
+    //                 mediasFiltered.sort(function (a, b) {
+    //                     return a.dataset.cuntMediaLike.localeCompare(b.dataset.cuntMediaLike)
+    //                 })
+    //                 break
+    //         }
+    //     })
         // displayAllMedia()
-        // console.log(e.target.id)
+        console.log(e.target.id)
     })
 }
 window.addEventListener('load', displayAllMedia())
