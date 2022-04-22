@@ -15,8 +15,8 @@ let OpenModal = (e) => {
     document.body.classList.add('overflow')
     window.scrollTo(0, 0)
     modal.scrollTo(0, 0)
-
     firstEletFocus.focus()
+
     modal.getAttribute("aria-hidden", "false")
     // console.log(contactModal)
     form.reset()
@@ -93,6 +93,11 @@ let validation = (e) => {
 
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            OpenModal(e)
+        }
+    })
 
     document.querySelector('#closeModal').addEventListener('click', closeModal)
     document.addEventListener('keydown', (e) => {
@@ -101,18 +106,18 @@ let startcontactlistener = () => {
         }
     })
 
-    document.querySelector('#sendForm').addEventListener('click', function (e) {
+    document.querySelector('#sendForm').addEventListener('click', (e) => {
         // e.preventDefault()
         validation(e)
     })
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            validation(e)
-        }
-    })
+    // document.addEventListener('keydown', (e) => {
+    //     if (e.key === 'Enter') {
+    //         validation(e)
+    //     }
+    // })
 }
 
-// ajouter un focus à tous les éléments de la modale
+// ajout d'un focus à tous les éléments de la modale
 let focusableElements = 'button, input, select, textarea'
 // console.log(focusable)
 let firstEletFocus = modal.querySelectorAll(focusableElements)[0] // pointe le 1er element focusable dans la modale
@@ -120,7 +125,7 @@ let firstEletFocus = modal.querySelectorAll(focusableElements)[0] // pointe le 1
 let focusableContent = contactModal.querySelectorAll(focusableElements)
 let lastEletFocus = focusableContent[focusableContent.length - 1] // pointe le dernier element focusable dans la modale
 // console.log(lastFocusableElement)
-document.addEventListener('keydown', function (e) {
+document.addEventListener('keydown', (e) => {
     let isTabPressed = e.key === 'Tab'//tabulation
 
     if (!isTabPressed) {
@@ -132,13 +137,11 @@ document.addEventListener('keydown', function (e) {
             lastEletFocus.focus() // on met le focus sur le dernier élément
             e.preventDefault()
         }
-    } else {
-        // si tab
-        if (document.activeElement === lastEletFocus) {
-            // si le focus etait sur le dernier element alors on revient sur le 1er focusable
-            firstEletFocus.focus() // on met le focus sur le 1er element
-            e.preventDefault()
-        }
+    } else if (document.activeElement === lastEletFocus) {
+        // si le focus etait sur le dernier element alors on revient sur le 1er focusable
+        firstEletFocus.focus() // on met le focus sur le 1er element
+        e.preventDefault()
     }
+
 })
 
