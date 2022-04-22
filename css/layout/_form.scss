@@ -27,6 +27,7 @@
         background-color: #db8876;
         box-shadow: 4px 5px 10px #525252;
         animation: content-in 0.6s ease-in-out;
+        position: relative;
         .headerModal {
             display: flex;
             justify-content: space-between;
@@ -42,8 +43,11 @@
                 }
             }
             .closeModal {
-                height: 2.75em;
-                width: 2.75em;
+                height: 2em;
+                width: 2em;
+                position: absolute;
+                right: 15px;
+                top: 15px;
                 svg {
                     fill: white;
                 }
@@ -81,6 +85,9 @@
                     font-size: 30px;
                 }
             }
+        }
+        .thanks{
+            font-size: 30px;
         }
     }
 }

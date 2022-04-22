@@ -220,6 +220,7 @@ img.logo {
   box-shadow: 4px 5px 10px #525252;
   -webkit-animation: content-in 0.6s ease-in-out;
           animation: content-in 0.6s ease-in-out;
+  position: relative;
 }
 .contactModal .content .headerModal {
   display: flex;
@@ -235,8 +236,11 @@ img.logo {
   font-size: 3.5em;
 }
 .contactModal .content .headerModal .closeModal {
-  height: 2.75em;
-  width: 2.75em;
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 .contactModal .content .headerModal .closeModal svg {
   fill: white;
@@ -272,6 +276,9 @@ img.logo {
   border: none;
   outline: none;
   border-radius: 5px;
+  font-size: 30px;
+}
+.contactModal .content .thanks {
   font-size: 30px;
 }
 

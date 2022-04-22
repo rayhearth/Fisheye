@@ -3,9 +3,12 @@
 let modal = document.querySelector('#contactModal')
 let openModalBtn = document.querySelector('#openModal')
 let closeModalBtn = document.querySelectorAll('.closeModal')
+let senForm = document.querySelector('#sendForm')
+let title = document.querySelector('.title')
 
 let form = document.forms['contactForm']
-// console.log(form)
+console.log(form)
+let modalThanks = document.querySelector('#thanks')
 
 let OpenModal = (e) => {
     document.body.classList.add('modal-open')
@@ -17,6 +20,14 @@ let OpenModal = (e) => {
     // console.log(contactModal)
     form.reset()
     form.style.display = ''
+    modalThanks.style.display = 'none'
+}
+
+let showModalThanks = (e) => {
+    form.style.display = 'none'
+    senForm.style.display = 'none'
+    title.style.display = 'none'
+    modalThanks.style.display = ''
 }
 
 let closeModal = (e) => {
@@ -65,24 +76,17 @@ let validation = (e) => {
     //Check validation errors
     if (!formFlag) {
         return false
-        // modalError.textContent='Veuillez renseigner tous les champs'
-    } else {
-        return true
-    }
-
+    } 
+    showModalThanks()
 }
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
 
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
+    document.querySelector('#closeModal').addEventListener('click', closeModal)
     document.querySelector('#sendForm').addEventListener('click', function (e) {
         // e.preventDefault()
-        validation()
-        closeModal()
+        validation(e)
     })
-    document.querySelector('#closeModal').addEventListener('click', closeModal)
-
-    /*Validation form and listener*/
-
 
 }
