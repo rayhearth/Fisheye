@@ -7,7 +7,7 @@ let senForm = document.querySelector('#sendForm')
 let title = document.querySelector('.title')
 
 let form = document.forms['contactForm']
-console.log(form)
+// console.log(form)
 let modalThanks = document.querySelector('#thanks')
 
 let OpenModal = (e) => {

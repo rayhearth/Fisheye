@@ -62,12 +62,25 @@ const closeLightbox = () => {
 //Branchement des listener
 
 let startlightboxlistener = () => {
-    all = document.querySelectorAll('.mediaLink')//on recupere tous nos media
+    all = document.querySelectorAll('.mediaLink')//on recupere tous nos medias
     // console.log(all)
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
     }
     nextBtn.addEventListener('click', next)
+    
     prevBtn.addEventListener('click', previous)
 }
+
 closeLightboxBtn.addEventListener('click', closeLightbox)
+
+//Commande au clavier
+document.addEventListener('keydown', (e) =>{
+    if(e.key === 'Escape'){
+        closeLightbox(e)
+    } else if(e.key ==='ArrowRight'){
+        next(e)
+    } else if(e.key === 'ArrowLeft'){
+        previous(e)
+    }
+})
