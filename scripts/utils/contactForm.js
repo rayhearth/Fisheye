@@ -14,9 +14,10 @@ let OpenModal = (e) => {
     document.body.classList.add('modal-open')
     document.body.classList.add('overflow')
     window.scrollTo(0, 0)
-    // modal.scrollTo(0, 0)
+    modal.scrollTo(0, 0)
 
-    // contactModal.getAttribute("aria-hidden", "false")
+    firstEletFocus.focus()
+    modal.getAttribute("aria-hidden", "false")
     // console.log(contactModal)
     form.reset()
     form.style.display = ''
@@ -34,7 +35,7 @@ let closeModal = (e) => {
     e.preventDefault
     document.body.classList.remove('modal-open')
     document.body.classList.remove('overflow')
-    // contatcModal.getAttribute("aria-hidden", "true")
+    modal.getAttribute("aria-hidden", "true")
 }
 
 
@@ -73,20 +74,71 @@ let validation = (e) => {
         formFlag = true
     }
 
+    // textArea validity
+    if (!form.elements['textContact'].value.trim().match(textFormat)) {
+        formFlag = false
+        areaError.textContent = 'Vous n\'avez pas renseigné de message'
+    } else {
+        areaError.innerHTML = ''
+        formFlag = true
+    }
+
     //Check validation errors
     if (!formFlag) {
         return false
-    } 
+    }
     showModalThanks()
 }
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
 
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
+
     document.querySelector('#closeModal').addEventListener('click', closeModal)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal(e)
+        }
+    })
+
     document.querySelector('#sendForm').addEventListener('click', function (e) {
         // e.preventDefault()
         validation(e)
     })
-
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            validation(e)
+        }
+    })
 }
+
+// ajouter un focus à tous les éléments de la modale
+let focusableElements = 'button, input, select, textarea'
+// console.log(focusable)
+let firstEletFocus = modal.querySelectorAll(focusableElements)[0] // pointe le 1er element focusable dans la modale
+// console.log(firstFocusableElement)
+let focusableContent = contactModal.querySelectorAll(focusableElements)
+let lastEletFocus = focusableContent[focusableContent.length - 1] // pointe le dernier element focusable dans la modale
+// console.log(lastFocusableElement)
+document.addEventListener('keydown', function (e) {
+    let isTabPressed = e.key === 'Tab'//tabulation
+
+    if (!isTabPressed) {
+        return
+    }
+    if (e.shiftKey) {
+        // si shift + tab en même temps = on revient en arrière sur les éléments focusables
+        if (document.activeElement === firstEletFocus) {
+            lastEletFocus.focus() // on met le focus sur le dernier élément
+            e.preventDefault()
+        }
+    } else {
+        // si tab
+        if (document.activeElement === lastEletFocus) {
+            // si le focus etait sur le dernier element alors on revient sur le 1er focusable
+            firstEletFocus.focus() // on met le focus sur le 1er element
+            e.preventDefault()
+        }
+    }
+})
+
