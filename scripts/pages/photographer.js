@@ -41,20 +41,26 @@ let displayAllMedia = async () => {
     //appel de la methode des likes
     media.cuntMediaLike()
 
-    let filterBtns = document.querySelectorAll('.filterOption')
-    // console.log(filterBtns)
+    // let filterBtns = document.querySelectorAll('.filterOption')
+    // // console.log(filterBtns)
+    // let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
+    // console.log(mediasFiltered)
+
     
-    for (let btn of filterBtns) {
-        // console.log(btn)
-        mediaSort(btn)
-    }
     
-    let mediaSort = (btn) => {
-        btn.addEventListener('click', (e) =>{
-            let mediasFiltered = [...document.querySelectorAll('.galleryContainer')]
-            console.log(mediasFiltered)            
-        })
-    }
+    // for (let btn of filterBtns) {
+    //     console.log(btn)
+    //     btn.addEventListener('click', mediaSort)
+    // }
+    
+    // const mediaSort = (btn) => {
+    //     switch (e.target.id) {
+    //         case 'pop' : mediasFiltered.sort(function (a,b){
+    //             return a.dataset.cunt.LocaleCompare(b.dataset.cunt)
+    //         })
+    //         break
+    //     }
+    // }
     // mediasFiltered.addEventListener("change", (e) => {
     //     switch (e.target.id) {
     //         case 'pop':
@@ -74,8 +80,11 @@ let displayAllMedia = async () => {
     //                 break
     //         }
     //     })
-        // displayAllMedia()
-        console.log(e.target.id)
-    })
+    // displayAllMedia()
+    // console.log(e.target.id)
+    // })
+
+
+    
 }
 window.addEventListener('load', displayAllMedia())

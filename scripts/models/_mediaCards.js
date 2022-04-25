@@ -31,14 +31,13 @@ export class MediaCards {
     renderImage() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
+            <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
                 <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
-                <p class="media-legend-title">${this._title}</p>
-
+                <p class="mediaCard-title" data-title="${this._title}">${this._title}</p>
             </div>
             <div class="media-legend">
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
-                    <span class="media-legend-cunt" id="like-cunt">${this._likes}</span>
+                    <span class="media-legend-cunt" data-cunt="${this._likes}" id="like-cunt">${this._likes}</span>
                     <svg class="hearth" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hearth" role="img"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
                     <path fill="currentColor"
@@ -53,7 +52,7 @@ export class MediaCards {
     renderVideo() {
         return `
         <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
+            <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
                 <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
                 <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
                 <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"
@@ -62,11 +61,11 @@ export class MediaCards {
                 d="M384 112v288c0 26.51-21.49 48-48 48h-288c-26.51 0-48-21.49-48-48v-288c0-26.51 21.49-48 48-48h288C362.5 64 384 85.49 384 112zM576 127.5v256.9c0 25.5-29.17 40.39-50.39 25.79L416 334.7V177.3l109.6-75.56C546.9 87.13 576 102.1 576 127.5z">
                 </path>
                 </svg>
+                <p class="mediaCard-title" data-title="${this._title}">${this._title}</p>
             </div>
             <div class="media-legend">
-                <p class="media-legend-title">${this._title}</p>
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
-                    <span class="media-legend-cunt" id="like-cunt">${this._likes}</span>
+                    <span class="media-legend-cunt" data-cunt="${this._likes}" id="like-cunt">${this._likes}</span>
                     <svg class="hearth" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hearth" role="img"
                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
                     <path fill="currentColor"

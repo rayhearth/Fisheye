@@ -101,10 +101,11 @@ export class PhotographFactory extends Api {
         let mediaLegendCunt = legend.children[0]//je cible le premier ele de mon array pr recup mon chiffre like
         // console.log(mediaLegendCunt)
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
+        // console.log(mediaLegendCunt)
 
         let totalLikes = document.querySelector('#footerInfosCunt')
         // console.log(totalLikes)
-        totalLikes.textContent = parseInt(mediaLegendCunt.textContent) + 1
+        totalLikes.textContent = parseInt(totalLikes.textContent) + 1
       })
     }
   }
