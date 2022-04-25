@@ -33,7 +33,7 @@ let displayAllMedia = async () => {
     let AllMedias = await media.getAllMedia(urlId)
     // console.log(urlId)
     // console.log(AllMedias)
-    document.querySelector('.galleryContainer').innerHTML = AllMedias.gallery
+    document.querySelector('#galleryContainer').innerHTML = AllMedias.gallery
     // console.log(document.querySelector('.galleryContainer'))
     // console.log(AllMedias.gallery)
 
@@ -41,26 +41,37 @@ let displayAllMedia = async () => {
     //appel de la methode des likes
     media.cuntMediaLike()
 
-    // let filterBtns = document.querySelectorAll('.filterOption')
-    // // console.log(filterBtns)
-    // let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
+    let filterBtns = document.querySelectorAll('.filterOption')
+    // console.log(filterBtns)
+    let mediasFiltered = [...document.querySelectorAll('.mediaLink')]
     // console.log(mediasFiltered)
 
     
     
-    // for (let btn of filterBtns) {
-    //     console.log(btn)
-    //     btn.addEventListener('click', mediaSort)
-    // }
     
-    // const mediaSort = (btn) => {
-    //     switch (e.target.id) {
-    //         case 'pop' : mediasFiltered.sort(function (a,b){
-    //             return a.dataset.cunt.LocaleCompare(b.dataset.cunt)
-    //         })
-    //         break
-    //     }
-    // }
+    for (let btn of filterBtns) {
+        console.log(btn)
+        btn.addEventListener('click', e => {
+            mediaSort(e)
+        })
+    }
+
+    const mediaSort = (e) => {
+        switch (e.target.id) {
+            case 'pop' : mediasFiltered.sort(function (a,b){
+                console.log('azeaze')
+                return a.dataset.cunt.LocaleCompare(b.dataset.cunt)
+            })
+            break
+        }
+        switch(e.target.id){
+            case 'date' : mediasFiltered.sort(function(a,b){
+                return  a.dataset.date.LocaleCompare(b.dataset.dataset)
+            })
+            break
+        }
+        document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.gallery)
+    }
     // mediasFiltered.addEventListener("change", (e) => {
     //     switch (e.target.id) {
     //         case 'pop':
