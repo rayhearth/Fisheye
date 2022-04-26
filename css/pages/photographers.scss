@@ -27,7 +27,6 @@ main {
             }
         }
     }
-
     section.portfolio {
         display: flex;
         flex-direction: column;
@@ -67,48 +66,50 @@ main {
                         width: 350px;
                         height: 300px;
                     }
-                    svg {
-                        position: absolute;
-                        color: $red-light;
-                        z-index: -1;
-                        opacity: 0.7;
-                        height: 36px;
-                        font-size: 1.5rem;
-                        top: 35%;
-                        left: 50%;
+                    video {
+                        position: relative;
                     }
                     p {
-                        font-size: 1.5rem;
-                        color: $red;
-                        position: relative;
-                        padding-top: 20px;
+                        position: absolute;
+                        top: 50%;
+                        z-index: -1;
                     }
+                    // svg {
+                    //     position: absolute;
+                    //     fill: $red;
+                    //     z-index: -1;
+                    //     height: 36px;
+                    //     font-size: 1.5rem;
+                    //     top: 35%;
+                    //     left: 50%;
+                    // }
                 }
                 .media-legend {
                     display: flex;
                     justify-content: space-between;
-                    align-items: center;
-                    // padding: 5px 0;
-                    width: 100%;
+                    align-items: flex-start;
+                    padding: 5px 0;
+                    width: 90%;
                     // max-width: 350px;
                     height: 50px;
                     color: $red;
-                    span {
+                    h2 {
                         font-size: 1.5rem;
-                        margin-right: 5px;
+                        color: $red;
                     }
                     .media-legend-like {
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;
                         flex-direction: row;
-                        position: absolute;
-                        right: 15px;
-                        bottom: 50px;
                         cursor: pointer;
+                        span {
+                            font-size: 1.5rem;
+                            margin-right: 5px;
+                        }
                         svg {
                             height: 24px;
-                            
+                            fill: $red;
                         }
                     }
                 }

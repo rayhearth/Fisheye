@@ -32,18 +32,13 @@ export class MediaCards {
         return `
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
-                <img role="button" class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
-                <p class="mediaCard-title" data-title="${this._title}">${this._title}</p>
-            </div>
-            <div class="media-legend">
+                <img class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
+                </div>
+                <div class="media-legend">
+                <h2 class="mediaCard-title" data-title="${this._title}">${this._title}</h2>
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
                     <span class="media-legend-cunt" data-cunt="${this._likes}" id="like-cunt">${this._likes}</span>
-                    <svg class="hearth" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hearth" role="img"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
-                    <path fill="currentColor"
-                        d="M462.1 62.86C438.8 41.92 408.9 31.1 378.7 32c-37.49 0-75.33 15.4-103 43.98l-19.7 20.27l-19.7-20.27C208.6 47.4 170.8 32 133.3 32C103.1 32 73.23 41.93 49.04 62.86c-62.14 53.79-65.25 149.7-9.23 207.6l193.2 199.7C239.4 476.7 247.6 480 255.9 480c8.332 0 16.69-3.267 23.01-9.804l193.1-199.7C528.2 212.5 525.1 116.6 462.1 62.86zM437.6 237.1l-181.6 187.8L74.34 237.1C42.1 203.8 34.46 138.1 80.46 99.15c39.9-34.54 94.59-17.5 121.4 10.17l54.17 55.92l54.16-55.92c26.42-27.27 81.26-44.89 121.4-10.17C477.1 138.6 470.5 203.1 437.6 237.1z">
-                    </path>
-                    </svg>
+                    <svg class="hearth" aria-hidden="true" tabindex="0" data-prefix="far" data-icon="hearth" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
                 </div>
             </div>
         </article>`
@@ -53,25 +48,15 @@ export class MediaCards {
         return `
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
-                <video controls class="picture" media-id=${this._id} aria-label=${this._title}>
-                <source src="assets/photographers/${this._photographerId}/media/${this._media}"type="video/mp4"></video>
-                <svg class="svg-inline--fa fa-video mediaIcon" aria-hidden="true" focusable="false" data-prefix="fas"
-                data-icon="video" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
-                <path fill="currentColor"
-                d="M384 112v288c0 26.51-21.49 48-48 48h-288c-26.51 0-48-21.49-48-48v-288c0-26.51 21.49-48 48-48h288C362.5 64 384 85.49 384 112zM576 127.5v256.9c0 25.5-29.17 40.39-50.39 25.79L416 334.7V177.3l109.6-75.56C546.9 87.13 576 102.1 576 127.5z">
-                </path>
-                </svg>
-                <p class="mediaCard-title" data-title="${this._title}">${this._title}</p>
-            </div>
-            <div class="media-legend">
+                <video controls class="picture" media-id=${this._id} aria-label=video de ${this._title} >
+                <source src="assets/photographers/${this._photographerId}/media/${this._media} "type="video/mp4"></video>
+                <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici <a href="assets/photographers.${this._photographerId}/media/${this._media}">un lien pour télécharger la vidéo</a>.</p>
+                </div>
+                <div class="media-legend">
+                <h2 class="mediaCard-title" data-title="${this._title}">${this._title}</h2>
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
                     <span class="media-legend-cunt" data-cunt="${this._likes}" id="like-cunt">${this._likes}</span>
-                    <svg class="hearth" aria-hidden="true" focusable="false" data-prefix="far" data-icon="hearth" role="img"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
-                    <path fill="currentColor"
-                        d="M462.1 62.86C438.8 41.92 408.9 31.1 378.7 32c-37.49 0-75.33 15.4-103 43.98l-19.7 20.27l-19.7-20.27C208.6 47.4 170.8 32 133.3 32C103.1 32 73.23 41.93 49.04 62.86c-62.14 53.79-65.25 149.7-9.23 207.6l193.2 199.7C239.4 476.7 247.6 480 255.9 480c8.332 0 16.69-3.267 23.01-9.804l193.1-199.7C528.2 212.5 525.1 116.6 462.1 62.86zM437.6 237.1l-181.6 187.8L74.34 237.1C42.1 203.8 34.46 138.1 80.46 99.15c39.9-34.54 94.59-17.5 121.4 10.17l54.17 55.92l54.16-55.92c26.42-27.27 81.26-44.89 121.4-10.17C477.1 138.6 470.5 203.1 437.6 237.1z">
-                    </path>
-                    </svg>
+                    <svg class="hearth" aria-hidden="true" tabindex="0" data-prefix="far" data-icon="hearth" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 190.9V185.1C0 115.2 50.52 55.58 119.4 44.1C164.1 36.51 211.4 51.37 244 84.02L256 96L267.1 84.02C300.6 51.37 347 36.51 392.6 44.1C461.5 55.58 512 115.2 512 185.1V190.9C512 232.4 494.8 272.1 464.4 300.4L283.7 469.1C276.2 476.1 266.3 480 256 480C245.7 480 235.8 476.1 228.3 469.1L47.59 300.4C17.23 272.1 .0003 232.4 .0003 190.9L0 190.9z"/></svg>
                 </div>
             </div>
         </article>`
