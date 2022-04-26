@@ -66,47 +66,53 @@ main {
                         width: 350px;
                         height: 300px;
                     }
-                    video {
+                    video{
                         position: relative;
                     }
-                    p {
+                    p{
                         position: absolute;
                         top: 50%;
                         z-index: -1;
+                        a{
+                            color: $red;
+                        }
                     }
-                    // svg {
-                    //     position: absolute;
-                    //     fill: $red;
-                    //     z-index: -1;
-                    //     height: 36px;
-                    //     font-size: 1.5rem;
-                    //     top: 35%;
-                    //     left: 50%;
-                    // }
+                    svg {
+                        position: absolute;
+                        fill: $red;
+                        z-index: -1;
+                        height: 36px;
+                        font-size: 1.5rem;
+                        top: 35%;
+                        left: 50%;
+                    }
+                    h2 {
+                        font-size: 1.5rem;
+                        color: $red;
+                        position: relative;
+                        padding-top: 10px;
+                        width: 80%;
+                    }
                 }
                 .media-legend {
                     display: flex;
                     justify-content: space-between;
-                    align-items: flex-start;
-                    padding: 5px 0;
-                    width: 90%;
-                    // max-width: 350px;
+                    align-items: center;
                     height: 50px;
                     color: $red;
-                    h2 {
+                    span {
                         font-size: 1.5rem;
-                        color: $red;
+                        margin-right: 5px;
                     }
                     .media-legend-like {
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;
                         flex-direction: row;
+                        position: absolute;
+                        right: 15px;
+                        top: 310px;
                         cursor: pointer;
-                        span {
-                            font-size: 1.5rem;
-                            margin-right: 5px;
-                        }
                         svg {
                             height: 24px;
                             fill: $red;

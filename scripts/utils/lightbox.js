@@ -1,5 +1,5 @@
 // DOM Elements
-let openLightboxBtn = document.querySelector('.mediaContentCard')
+let openLightboxBtn = document.querySelector('.mediaLink')
 let closeLightboxBtn = document.querySelector('#lightbox__close')
 
 let lightboxTitle = document.querySelector('#lightbox-media-title')
@@ -20,9 +20,9 @@ const openLightbox = (e) => {
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
     // lightbox-media.scrollTo(0, 0)
-    let currentMedia = e.currentTarget.querySelectorAll('.mediaContentCard')
-    console.log(currentMedia)
-    // index = parseInt(currentMedia.getAttribute('position'))
+    let currentMedia = e.target.parentNode
+
+    index = parseInt(currentMedia.getAttribute('position'))
     // console.log(index)
     // console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
@@ -62,7 +62,7 @@ const closeLightbox = () => {
 //Branchement des listener
 
 let startlightboxlistener = () => {
-    all = document.querySelectorAll('.mediaContentCard')//on recupere tous nos medias
+    all = document.querySelectorAll('.mediaLink')//on recupere tous nos medias
     // console.log(all)
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
