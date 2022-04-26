@@ -171,6 +171,55 @@ img.logo {
   padding: 1rem 0;
 }
 
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: bold;
+  width: 15rem;
+}
+.filter label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  gap: 1.625rem;
+}
+.filter .filterWrapper [role=label] {
+  background-color: #901C1C;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 170px;
+  min-height: 50px;
+  padding: 0.25rem 1rem;
+  gap: 1.625rem;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.filter .filterWrapper [role=label]::after {
+  position: relative;
+  display: block;
+  color: white;
+  fill: white;
+  width: 1rem;
+  height: 1.4rem;
+  content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"/></svg>');
+  transition: all 0.3s ease-in-out;
+}
+.filter .filterWrapper[aria-expanded=true] [role=label]::after {
+  transform: rotate(180deg);
+}
+.filter .filterWrapper ul {
+  list-style-type: none;
+}
+.filter .filterWrapper ul li {
+  padding: 5px;
+  color: white;
+}
+
 .contactBtn {
   font-size: 20px;
   font-weight: bold;
@@ -425,14 +474,7 @@ main section.portfolio {
   display: flex;
   flex-direction: column;
   width: 100%;
-  /*FILTER*/
   /*GALLERY*/
-}
-main section.portfolio .filter-form-wrapper {
-  margin: 50px 0 100px;
-}
-main section.portfolio .filter-form-wrapper .filter-form label {
-  margin-right: 20px;
 }
 main section.portfolio .galleryContainer {
   display: flex;
@@ -486,13 +528,13 @@ main section.portfolio .galleryContainer article .mediaCard h2 {
   font-size: 1.5rem;
   color: #901C1C;
   position: relative;
-  padding-top: 20px;
+  padding-top: 10px;
+  width: 80%;
 }
 main section.portfolio .galleryContainer article .media-legend {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 50px;
   color: #901C1C;
 }
@@ -507,7 +549,7 @@ main section.portfolio .galleryContainer article .media-legend .media-legend-lik
   flex-direction: row;
   position: absolute;
   right: 15px;
-  bottom: 50px;
+  top: 310px;
   cursor: pointer;
 }
 main section.portfolio .galleryContainer article .media-legend .media-legend-like svg {

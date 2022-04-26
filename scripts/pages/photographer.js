@@ -49,13 +49,14 @@ let displayAllMedia = async () => {
     
     
     
+    
     for (let btn of filterBtns) {
         console.log(btn)
         btn.addEventListener('click', e => {
             mediaSort(e)
         })
     }
-
+    
     const mediaSort = (e) => {
         switch (e.target.id) {
             case 'pop' : mediasFiltered.sort(function (a,b){

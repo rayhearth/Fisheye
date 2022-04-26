@@ -110,6 +110,18 @@
         </form>
       </div>
 
+      <aside class="filter">
+        <label class="filterLabel" id="filterLabel" for="filter">Trier par:</label>
+        <div class="filterWrapper" id="filter" tabindex="0" role="button">
+            <label class="filter-label" role="label">Popularité</label> 
+            <ul class="filter-listbox" role="listbox"  aria-labelledby="filter-label"> 
+                <li class="filterOption" role="option" id="pop" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</li> 
+                <li class="filterOption" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
+                <li class="filterOption" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
+            </ul>
+        </div>
+    </aside>
+
       <!--	ARTICLE GALLERY------------------------------------------------>
       <!-- on injecte le render all media ds la gallery container -->
       <div class="galleryContainer" id="galleryContainer"></div>

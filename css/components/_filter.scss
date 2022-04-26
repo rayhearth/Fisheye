@@ -1,0 +1,51 @@
+.filter{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: bold;
+    width: 15rem;
+    label{
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        outline: none;
+        gap: 1.625rem;
+    }
+    .filterWrapper{
+        [role="label"] {
+            background-color: $red;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            width: 170px; 
+            min-height: 50px;
+            padding: 0.25rem 1rem;
+            gap: 1.625rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            &::after{
+                position: relative;
+                display: block;
+                color: white;
+                fill: white;
+                width: 1rem;
+                height: 1.4rem;
+                content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path fill="currentColor" d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"/></svg>');
+                transition: all .3s ease-in-out;
+            }
+        }
+        &[aria-expanded="true"] [role="label"]::after{
+            transform: rotate(180deg);
+        }
+        ul{
+            list-style-type: none;
+            li{
+                padding: 5px;
+                color: white;
+            }
+        }
+
+    }
+}

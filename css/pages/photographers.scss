@@ -31,15 +31,15 @@ main {
         display: flex;
         flex-direction: column;
         width: 100%;
-        /*FILTER*/
-        .filter-form-wrapper {
-            margin: 50px 0 100px;
-            .filter-form {
-                label {
-                    margin-right: 20px;
-                }
-            }
-        }
+        // /*FILTER*/
+        // .filter-form-wrapper {
+        //     margin: 50px 0 100px;
+        //     .filter-form {
+        //         label {
+        //             margin-right: 20px;
+        //         }
+        //     }
+        // }
         /*GALLERY*/
         .galleryContainer {
             // margin: 200px;
@@ -66,14 +66,14 @@ main {
                         width: 350px;
                         height: 300px;
                     }
-                    video{
+                    video {
                         position: relative;
                     }
-                    p{
+                    p {
                         position: absolute;
                         top: 50%;
                         z-index: -1;
-                        a{
+                        a {
                             color: $red;
                         }
                     }
