@@ -1,51 +1,3 @@
-/***** ANIMATIONS *****/
-/*anim-hearth*/
-@-webkit-keyframes full-hearth {
-  0% {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-  15% {
-    transform: scaleY(0.33);
-  }
-  25% {
-    transform: scaleY(0.51);
-  }
-  43% {
-    transform: scaleY(0.7);
-    opacity: 0.5;
-  }
-  68% {
-    transform: scaleY(0.87);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-@keyframes full-hearth {
-  0% {
-    transform: scaleY(0);
-    opacity: 0;
-  }
-  15% {
-    transform: scaleY(0.33);
-  }
-  25% {
-    transform: scaleY(0.51);
-  }
-  43% {
-    transform: scaleY(0.7);
-    opacity: 0.5;
-  }
-  68% {
-    transform: scaleY(0.87);
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
 /*****RESET*****/
 * {
   margin: 0;
@@ -83,7 +35,7 @@ img.logo {
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  box-shadow: 4px 4px 8px #c4c4c4;
+  box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 .lightboxOpen .lightbox {
@@ -123,6 +75,7 @@ img.logo {
   top: 50px;
   right: 0;
   z-index: 11;
+  outline: none;
 }
 .lightbox .lightbox__next svg,
 .lightbox .lightbox__prev svg {
@@ -171,8 +124,8 @@ img.logo {
   padding: 1rem 0;
 }
 
-.filter-listbox {
-  display: block;
+.displayDropDown .filter-listbox {
+  display: flex;
 }
 
 .filter {
@@ -188,6 +141,7 @@ img.logo {
   align-items: center;
   outline: none;
   gap: 1.625rem;
+  cursor: pointer;
 }
 .filter .filterWrapper {
   background-color: #901C1C;
@@ -209,26 +163,27 @@ img.logo {
   z-index: 5;
   transition: all 0.3s ease-in-out;
 }
+.filter .filterWrapper label span:focus {
+  transform: rotate(180deg);
+}
 .filter .filterWrapper label span:hover {
   transform: rotate(180deg);
 }
-.filter .filterWrapper select {
-  display: flex;
-  min-height: 50px;
-  align-items: center;
-}
-.filter .filterWrapper ul {
+.filter .filterWrapper .filter-listbox {
   display: none;
   list-style: none;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-  width: 100%;
+  width: 170px;
   box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.2);
 }
-.filter .filterWrapper ul li {
+.filter .filterWrapper .filter-listbox button {
   position: relative;
+  border: none;
+  color: white;
+  width: 100%;
   background-color: #901C1C;
   display: flex;
   align-items: center;
@@ -240,15 +195,19 @@ img.logo {
   height: 50px;
   transition: all 0.3s linear;
 }
-.filter .filterWrapper ul li:hover, .filter .filterWrapper ul li[aria-selected=true] {
+.filter .filterWrapper .filter-listbox button:hover {
   background-color: #D3573C;
   color: black;
 }
-.filter .filterWrapper ul li:first-child {
+.filter .filterWrapper .filter-listbox button:focus {
+  background-color: #D3573C;
+  color: black;
+}
+.filter .filterWrapper .filter-listbox button:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.filter .filterWrapper ul li:last-child::before, .filter .filterWrapper ul li:nth-child(2)::before {
+.filter .filterWrapper .filter-listbox button:last-child::before, .filter .filterWrapper .filter-listbox button:nth-child(2)::before {
   position: absolute;
   top: 0;
   right: 5%;
@@ -258,7 +217,7 @@ img.logo {
   content: "";
   border-top: 1px solid white;
 }
-.filter .filterWrapper ul li:last-child {
+.filter .filterWrapper .filter-listbox button:last-child {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -274,25 +233,14 @@ img.logo {
   background-color: #901C1C;
   border-radius: 5px;
   margin: 20px 0;
+  outline: none;
   cursor: pointer;
   transition: all 0.3s;
 }
-.contactBtn:hover {
-  background-color: #DB8876;
+.contactBtn:hover, .contactBtn:focus {
+  background-color: #FAFAFA;
+  color: #901C1C;
   border: 1px #901C1C;
-}
-
-#filter-select {
-  background-color: #901C1C;
-  border-color: transparent;
-  border-radius: 5px;
-  color: #FAFAFA;
-  font-size: 18px;
-  min-height: 50px;
-  padding: 5px 10px;
-  width: 170px;
-  height: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .modal-open .contactModal {
