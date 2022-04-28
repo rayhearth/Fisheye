@@ -78,7 +78,10 @@ closeLightboxBtn.addEventListener('click', closeLightbox)
 document.addEventListener('keydown', (e) =>{
     if(e.key === 'Escape'){
         closeLightbox(e)
-    } else if(e.key ==='ArrowRight'){
+    } else if(e.key ==='Enter'){
+        openLightbox(e)
+    }
+    else if(e.key ==='ArrowRight'){
         next(e)
     } else if(e.key === 'ArrowLeft'){
         previous(e)
