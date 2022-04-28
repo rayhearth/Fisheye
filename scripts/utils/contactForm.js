@@ -26,7 +26,7 @@ let OpenModal = (e) => {
 
 let showModalThanks = (e) => {
     form.style.display = 'none'
-    senForm.style.display = 'none'
+    sendForm.style.display = 'none'
     title.style.display = 'none'
     modalThanks.style.display = ''
 }
@@ -36,6 +36,8 @@ let closeModal = (e) => {
     document.body.classList.remove('modal-open')
     document.body.classList.remove('overflow')
     modal.getAttribute("aria-hidden", "true")
+    title.style.display =''
+    senForm.style.display = ''
 }
 
 

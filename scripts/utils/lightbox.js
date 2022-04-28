@@ -23,6 +23,7 @@ const openLightbox = (e) => {
     let currentMedia = e.target.parentNode
 
     index = parseInt(currentMedia.getAttribute('position'))
+    document.querySelector('#light').innerHTML = all[index].innerHTML
     // console.log(index)
     // console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
@@ -30,17 +31,18 @@ const openLightbox = (e) => {
 }
 
 
-const next = () => {
+let next = () => {
     index = index + 1
     if (index == all.length) {
         index = 0
     }
+    // console.log(document.querySelector('#light'))
     // console.log(index)
     // console.log(all)
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
 
-const previous = () => {
+let previous = () => {
     index = index - 1
     if (index == -1) {
         index = all.length - 1

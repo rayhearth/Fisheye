@@ -48,7 +48,7 @@ export class MediaCards {
         return `
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
-                <video controls class="picture" media-id=${this._id} aria-label=video de ${this._title} >
+                <video class="picture" media-id=${this._id} aria-label=video de ${this._title} >
                 <source src="assets/photographers/${this._photographerId}/media/${this._media} "type="video/mp4"></video>
                 <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici <a href="assets/photographers.${this._photographerId}/media/${this._media}">un lien pour télécharger la vidéo</a>.</p>
                 <h2 class="mediaCard-title" data-title="${this._title}">${this._title}</h2>
