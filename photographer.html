@@ -45,7 +45,7 @@
     <section id="photographer" class="photographer">
     </section>
     <!-- CONTACT MODAL -->
-    <div class="contactModal" id="contactModal" role="dialog" aria-labelledby="contactModal-title" aria-hidden="true">
+    <div class="contactModal" id="contactModal" role="dialog" aria-labelledby="title" aria-hidden="true">
       <div class="content">
         <div class="headerModal">
           <div class="title">
@@ -102,8 +102,8 @@
       <!-- <div class="filter-form-wrapper">
         <form class="filter-form" action="#" method="POST">
           <label for="filter-select">Trier par : </label> -->
-          <!-- <span><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path  d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"/></svg></span> -->
-          <!-- <select name="filter-select" id="filter-select">
+      <!-- <span><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path  d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"/></svg></span> -->
+      <!-- <select name="filter-select" id="filter-select">
             <option class="filterOption" id="pop" value="Popularite" selected>Popularité </option>
             <option class="filterOption" id="date" value="Date">Date</option>
             <option class="filterOption" id="title" value="Titre">Titre</option>
@@ -114,14 +114,21 @@
       <aside class="filter">
         <label class="filterLabel" id="filterLabel" for="filter">Trier par:</label>
         <div class="filterWrapper" id="filter" tabindex="0" role="button">
-            <label class="filterLabel" id="filter-btn" role="label">Popularité<span><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path  d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z"/></svg></span></label> 
-            <ul class="filter-listbox" id="filter-listbox" role="listbox"  aria-labelledby="filter-label"> 
-                <button class="filterOption" tabindex="0" role="option" id="pop" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</button> 
-                <button class="filterOption" tabindex="0" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</button> 
-                <button class="filterOption" tabindex="0" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</button> 
-            </ul>
+          <label class="filterLabel" id="filter-btn" role="label">Popularité<span><svg
+                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+                <path
+                  d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z" />
+              </svg></span></label>
+          <ul class="filter-listbox" id="filter-listbox" role="listbox" aria-labelledby="filter-label">
+            <button class="filterOption" tabindex="0" role="option" id="pop" aria-selected="true"
+              data-listbox-value="rate" data-listbox-name="Popularité">Popularité</button>
+            <button class="filterOption" tabindex="0" role="option" id="date" data-listbox-value="date"
+              data-listbox-name="Date">Date</button>
+            <button class="filterOption" tabindex="0" role="option" id="title" data-listbox-value="title"
+              data-listbox-name="Titre">Titre</button>
+          </ul>
         </div>
-    </aside>
+      </aside>
 
       <!--	ARTICLE GALLERY------------------------------------------------>
       <!-- on injecte le render all media ds la gallery container -->

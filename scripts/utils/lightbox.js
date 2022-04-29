@@ -34,7 +34,7 @@ const openLightbox = (e) => {
 let next = () => {
     index = index + 1
     if (index == all.length) {
-        index = 0
+        index = 0 
     }
     // console.log(document.querySelector('#light'))
     // console.log(index)
