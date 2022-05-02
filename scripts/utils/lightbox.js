@@ -78,7 +78,7 @@ closeLightboxBtn.addEventListener('click', closeLightbox)
 
 //Commande au clavier
 document.addEventListener('keydown', (e) =>{
-    if(e.key === 'Escape'){
+    if(e.key === 'Escape' || e.key ==='Esc'){
         closeLightbox(e)
     } else if(e.key ==='Enter'){
         openLightbox(e)

@@ -5,18 +5,18 @@
     padding: 11px;
     width: 170px;
     height: 70px;
-    border: none;
     background-color: $red;
+    border: 1px solid $red;
     border-radius: 5px;
     margin: 20px 0;
     outline: none;
     cursor: pointer;
-    transition: all .3s;
+    transition: all 0.3s;
     &:hover,
-    &:focus{
+    &:focus {
         background-color: $lightgray;
         color: $red;
-        border: 1px $red;
+        border: 2px solid $red;
     }
 }
 

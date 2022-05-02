@@ -229,8 +229,8 @@ img.logo {
   padding: 11px;
   width: 170px;
   height: 70px;
-  border: none;
   background-color: #901C1C;
+  border: 1px solid #901C1C;
   border-radius: 5px;
   margin: 20px 0;
   outline: none;
@@ -240,7 +240,7 @@ img.logo {
 .contactBtn:hover, .contactBtn:focus {
   background-color: #FAFAFA;
   color: #901C1C;
-  border: 1px #901C1C;
+  border: 2px solid #901C1C;
 }
 
 .modal-open .contactModal {
@@ -317,20 +317,26 @@ img.logo {
   font-weight: normal;
   font-size: 1.7em;
 }
-.contactModal .content form .formData input {
-  width: 100%;
-  height: 40px;
+.contactModal .content form .formData input,
+.contactModal .content form .formData textarea {
   border: none;
   outline: none;
   border-radius: 5px;
   font-size: 1.5em;
 }
+.contactModal .content form .formData input:hover,
+.contactModal .content form .formData textarea:hover {
+  border: 2px solid #901C1C;
+}
+.contactModal .content form .formData input {
+  width: 100%;
+  height: 40px;
+}
 .contactModal .content form .formData textarea {
   height: 170px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  font-size: 30px;
+}
+.contactModal .content form .formData textarea:hover {
+  border: 2px solid #901C1C;
 }
 .contactModal .content .thanks {
   font-size: 30px;

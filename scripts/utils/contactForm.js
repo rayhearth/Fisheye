@@ -17,8 +17,8 @@ let OpenModal = (e) => {
     modal.scrollTo(0, 0)
     firstEletFocus.focus()
 
-    modal.getAttribute("aria-hidden", "false")
-    // console.log(contactModal)
+    modal.setAttribute('aria-hidden', 'false')
+
     form.reset()
     form.style.display = ''
     modalThanks.style.display = 'none'
@@ -35,8 +35,9 @@ let closeModal = (e) => {
     e.preventDefault
     document.body.classList.remove('modal-open')
     document.body.classList.remove('overflow')
-    modal.getAttribute("aria-hidden", "true")
-    title.style.display =''
+    modal.setAttribute('aria-hidden', 'true')
+
+    title.style.display = ''
     senForm.style.display = ''
 }
 
@@ -89,8 +90,20 @@ let validation = (e) => {
     if (!formFlag) {
         return false
     }
+
+    let values = {
+        prenom: document.querySelector('#first').value,
+        nom: document.querySelector('#last').value,
+        email: document.querySelector('#email').value,
+        message: document.querySelector('#textContact').value,
+    }
+    // console.log(values)
+    localStorage.setItem('values', JSON.stringify(values))
+    console.log(localStorage)
+
     showModalThanks()
 }
+
 // on déclare nos sélecteurs et les events apres le chargement de la methode getOnePhotograph
 
 let startcontactlistener = () => {
@@ -103,20 +116,16 @@ let startcontactlistener = () => {
 
     document.querySelector('#closeModal').addEventListener('click', closeModal)
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' || e.key === 'Esc') {
             closeModal(e)
         }
     })
 
     document.querySelector('#sendForm').addEventListener('click', (e) => {
-        // e.preventDefault()
+        e.preventDefault()
         validation(e)
     })
-    // document.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Enter') {
-    //         validation(e)
-    //     }
-    // })
+
 }
 
 // ajout d'un focus à tous les éléments de la modale
