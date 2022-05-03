@@ -44,40 +44,37 @@ let displayAllMedia = async () => {
     //Mise en place du filtre
     startDropDownListener()
 
-    let filterBtns = document.querySelectorAll('.filterOption')
-    console.log(filterBtns)
 
-    let mediasFiltered = [...document.querySelectorAll('.mediaLink')]
-    console.log(mediasFiltered)
 
-    filterBtns.forEach(btn =>{
-        btn.addEventListener('click', e =>{
-            switch(e.target.id){
-                case 'pop': mediasFiltered.sort((a,b) => {
-                    console.log(e.target.id)
-                    // console.log('pop')
-                    return b.dataset.cunt - a.dataset.cunt
-                })
-                break;
-                case 'date': mediasFiltered.sort((a,b) => {
-                    console.log(e.target.id)
-                    // console.log('pop')
-                    return b.dataset.date - a.dataset.date
-                })
-                break;
-                case 'title': mediasFiltered.sort((a,b) =>{
-                    return a.dataset.title.localeCompare(b.dataset.title)
-                })
-                break;
-                default:
-                    console.log('le type sélectionné ne correspond pas')
-            }
-        })
-    })
+    // filterBtns.forEach(btn => {
+    //     btn.addEventListener('click', (e) => {
+    //         switch (e.target.id) {
+    //             case 'pop': mediasFiltered.sort((a, b) => {
+    //                 console.log(e.target.id)
+    //                 // console.log('pop')
+    //                 return b.dataset.cunt - a.dataset.cunt
+    //             })
+    //                 break;
+    //             case 'date': mediasFiltered.sort((a, b) => {
+    //                 console.log(e.target.id)
+    //                 // console.log('pop')
+    //                 return b.dataset.date - a.dataset.date
+    //             })
+    //                 break;
+    //             case 'title': mediasFiltered.sort((a, b) => {
+    //                 return a.dataset.title.localeCompare(b.dataset.title)
+    //             })
+    //                 break;
+    //             default:
+    //                 console.log('le type sélectionné ne correspond pas')
+    //         }
+    //         return document.querySelector('#galleryContainer').innerHTML = AllMedias.gallery
+    //     })
+    // })
 
     // let mediaSort = (btn) => {
     //     btn.addEventListener('click', (e)=> {
-            
+
     //     })
     //     switch (e.target.id) {
     //         case 'pop': mediasFiltered.sort()
@@ -89,3 +86,36 @@ let displayAllMedia = async () => {
 
 }
 window.addEventListener('load', displayAllMedia())
+
+
+let filterBtns = document.querySelectorAll('.filterOption')
+console.log(filterBtns)
+
+let mediaSort = (btn) => {
+    btn.addEventListener('click', (e) => {
+
+        let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
+        console.log(mediasFiltered)
+
+        mediasFiltered.sort((a, b) => {
+            switch (e.target.id) {
+                case 'pop':
+                    // console.log(pop)
+                    return a.dataset.pop.localeCompare(b.dataset.pop)
+                    break;
+                case 'date':
+                    return a.dataset.date.localeCompare(b.dataset.date)
+                    break;
+                case 'title':
+                    return a.dataset.title.localeCompare(b.dataset.title)
+                    break;
+                default: throw new Error('le type sélectionné ne correspond pas')
+            }
+        })
+        document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML)
+    })
+}
+for (let btn of filterBtns) {
+    mediaSort(btn)
+}
+

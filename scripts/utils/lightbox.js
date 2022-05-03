@@ -19,7 +19,7 @@ const openLightbox = (e) => {
     document.body.classList.add('overflow')
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
-    // lightbox.scrollTo(0, 0)
+    lightbox.scrollTo(0, 0)
     let currentMedia = e.target.parentNode
 
     index = parseInt(currentMedia.getAttribute('position'))
