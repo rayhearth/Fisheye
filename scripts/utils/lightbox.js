@@ -20,13 +20,14 @@ const openLightbox = (e) => {
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
     // lightbox.scrollTo(0, 0)
-    let currentMedia = e.target.parentNode                  
+    let currentMedia = e.target.parentNode
 
     index = parseInt(currentMedia.getAttribute('position'))
     document.querySelector('#light').innerHTML = all[index].innerHTML
     // console.log(index)
-    console.log(document.querySelector('#light'))
+    // console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
+    all[index].childNodes[1].removeAttribute('controls', '')
     lightbox.style.display = ''
 }
 

@@ -110,20 +110,23 @@ let startcontactlistener = () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             OpenModal(e)
+        } else if (e.key === 'Escape' || e.key === 'Esc') {
+            closeModal(e)
         }
     })
 
     document.querySelector('#closeModal').addEventListener('click', closeModal)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' || e.key === 'Esc') {
-            closeModal(e)
-        }
-    })
+    // document.addEventListener('keydown', (e) => {
+    //     if (e.key === 'Escape' || e.key === 'Esc') {
+    //         closeModal(e)
+    //     }
+    // })
 
     document.querySelector('#sendForm').addEventListener('click', (e) => {
         e.preventDefault()
         validation(e)
     })
+
 
 }
 
