@@ -19,13 +19,13 @@ const openLightbox = (e) => {
     document.body.classList.add('overflow')
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
-    // lightbox-media.scrollTo(0, 0)
-    let currentMedia = e.target.parentNode
+    // lightbox.scrollTo(0, 0)
+    let currentMedia = e.target.parentNode                  
 
     index = parseInt(currentMedia.getAttribute('position'))
     document.querySelector('#light').innerHTML = all[index].innerHTML
     // console.log(index)
-    // console.log(document.querySelector('#light'))
+    console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
     lightbox.style.display = ''
 }
@@ -34,10 +34,14 @@ const openLightbox = (e) => {
 let next = () => {
     index = index + 1
     if (index == all.length) {
-        index = 0 
+        index = 0
+    }
+    if (all[index].childNodes[1].dataset.video == 'video') {
+        all[index].childNodes[1].setAttribute('controls', '')
     }
     // console.log(document.querySelector('#light'))
-    // console.log(index)
+    // console.log(all[index])
+    // console.log(all[index].childNodes[1])
     // console.log(all)
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
@@ -46,6 +50,9 @@ let previous = () => {
     index = index - 1
     if (index == -1) {
         index = all.length - 1
+    }
+    if (all[index].childNodes[1].dataset.video == 'video') {
+        all[index].childNodes[1].setAttribute('controls', '')
     }
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
@@ -70,22 +77,22 @@ let startlightboxlistener = () => {
         m.addEventListener('click', openLightbox)
     }
     nextBtn.addEventListener('click', next)
-    
+
     prevBtn.addEventListener('click', previous)
 }
 
 closeLightboxBtn.addEventListener('click', closeLightbox)
 
 //Commande au clavier
-document.addEventListener('keydown', (e) =>{
-    if(e.key === 'Escape' || e.key ==='Esc'){
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === 'Esc') {
         closeLightbox(e)
-    } else if(e.key ==='Enter'){
+    } else if (e.key === 'Enter') {
         openLightbox(e)
     }
-    else if(e.key ==='ArrowRight'){
+    else if (e.key === 'ArrowRight') {
         next(e)
-    } else if(e.key === 'ArrowLeft'){
+    } else if (e.key === 'ArrowLeft') {
         previous(e)
     }
 })

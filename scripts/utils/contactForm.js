@@ -1,5 +1,4 @@
 // DOM Elements
-
 let modal = document.querySelector('#contactModal')
 let openModalBtn = document.querySelector('#openModal')
 let closeModalBtn = document.querySelectorAll('.closeModal')
