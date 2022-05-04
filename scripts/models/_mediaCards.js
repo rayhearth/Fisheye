@@ -33,7 +33,7 @@ export class MediaCards {
         <article class="mediaContentCard">
             <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
                 <img class="picture" src="assets/photographers/${this._photographerId}/media/${this._media}" alt="${this._title}">
-                <h2 class="mediaCard-title" data-title="${this._title}">${this._title}</h2>
+                <h2 class="mediaCard-title" id="titleCard" data-title="${this._title}">${this._title}</h2>
             </div>
             <div class="media-legend">
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
@@ -46,12 +46,12 @@ export class MediaCards {
 
     renderVideo() {
         return `
-        <article class="mediaContentCard">
-            <div class="mediaCard mediaLink" data-date="${this._date}" tabindex="0" media-id=${this._id} position=${this._position}>
-                <video controls class="picture" data-video="video" media-id=${this._id} aria-label=video de ${this._title} >
+        <article class="mediaContentCard" data-date="${this._date}" data-cunt="${this._likes}" data-title="${this._title}">
+            <div class="mediaCard mediaLink" tabindex="0" media-id=${this._id} position=${this._position}>
+                <video controls class="picture" data-video="video" aria-label=video de ${this._title} >
                 <source src="assets/photographers/${this._photographerId}/media/${this._media} "type="video/mp4"></video>
                 <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici <a href="assets/photographers.${this._photographerId}/media/${this._media}">un lien pour télécharger la vidéo</a>.</p>
-                <h2 class="mediaCard-title" data-title="${this._title}">${this._title}</h2>
+                <h2 class="mediaCard-title" id="titleCard">${this._title}</h2>
             </div>
             <div class="media-legend">
                 <div class="media-legend-like" liked="no" media-id=${this._id}>
