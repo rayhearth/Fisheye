@@ -25,6 +25,8 @@
         color: white;
         padding: 5px 10px;
         cursor: pointer;
+        transition: all ease-in-out .3s;
+        @include selectedFilter;
         label {
             position: relative;
             min-height: 50px;

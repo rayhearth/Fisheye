@@ -38,8 +38,8 @@ img.logo {
   box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
-.lightboxOpen .lightbox {
-  display: flex;
+.lightboxOpen {
+  display: flex !important;
 }
 
 .lightbox {
@@ -151,6 +151,15 @@ img.logo {
   color: white;
   padding: 5px 10px;
   cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+.filter .filterWrapper:hover {
+  background-color: #D3573C;
+  color: black;
+}
+.filter .filterWrapper:focus {
+  background-color: #D3573C;
+  color: black;
 }
 .filter .filterWrapper label {
   position: relative;

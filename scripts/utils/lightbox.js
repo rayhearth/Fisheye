@@ -17,18 +17,18 @@ let all = []
 const openLightbox = (e) => {
 
     document.body.classList.add('overflow')
-    document.body.classList.add('lightboxOpen')
+    lightbox.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
     lightbox.scrollTo(0, 0)
-    let currentMedia
+    //on cible le media sur lequel on presse
+    let currentMedia = e.target
     if (e.type == 'click'){
+        //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode
-    } else{
-        currentMedia = e.target
     }
 
     index = parseInt(currentMedia.getAttribute('position'))
-    console.log(document.querySelector('#light').innerHTML)
+    // console.log(document.querySelector('#light').innerHTML)
     document.querySelector('#light').innerHTML = all[index].innerHTML
     // console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
@@ -63,7 +63,7 @@ let previous = () => {
 }
 //Fermeture de la lightbox
 const closeLightbox = () => {
-    document.body.classList.remove('lightboxOpen')
+    lightbox.classList.remove('lightboxOpen')
     document.body.classList.remove('overflow')
     // on replace le focus sur le button contact a la fermeture de la lightbox
     document.querySelector('#openModal').focus()
@@ -81,7 +81,7 @@ let startlightboxlistener = () => {
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
         m.addEventListener('keydown', (e) => {
-            // console.log(e)
+            console.log(e)
             if (e.key === 'Escape' || e.key === 'Esc') {
                 closeLightbox(e)
             }
@@ -100,6 +100,7 @@ let startlightboxlistener = () => {
 
     prevBtn.addEventListener('click', previous)
     prevBtn.addEventListener('keydown', (e) => {
+        console.log(e)
         if (e.key === 'ArrowLeft') {
             previous(e)
         }
