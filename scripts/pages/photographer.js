@@ -65,7 +65,7 @@ let displayAllMedia = async () => {
                 })
                     break;
                 case 'filter-title': mediasFiltered.sort((a, b) => {
-                    return a.title.localeCompare(b.dataset.title)
+                    return a.dataset.title.localeCompare(b.dataset.title)
                 })
                     break;
                 default:
@@ -77,33 +77,6 @@ let displayAllMedia = async () => {
 
 
 }
+
 window.addEventListener('load', displayAllMedia())
-
-
-
-// let mediaSort = (btn) => {
-//     btn.addEventListener('click', (e) => {
-
-
-//         mediasFiltered.sort((a, b) => {
-//             switch(e.target.id) {
-//                 case 'pop':
-//                     console.log(like-cunt)
-//                     return a.dataset.cunt.localeCompare(b.dataset.cunt)
-//                     break;
-//                 case 'date':
-//                     return a.dataset.date.localeCompare(b.dataset.date)
-//                     break;
-//                 case 'titleCard':
-//                     return a.dataset.title.localeCompare(b.dataset.title)
-//                     break;
-//                 default: throw new Error('le type sélectionné ne correspond pas')
-//             }
-//         })
-//         document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML)
-//     })
-// }
-// for (let btn of filterBtns) {
-//     mediaSort(btn)
-// }
 

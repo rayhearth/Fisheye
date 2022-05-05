@@ -124,8 +124,8 @@ img.logo {
   padding: 1rem 0;
 }
 
-.displayDropDown .filter-listbox {
-  display: flex;
+.displayDropDown {
+  display: flex !important;
 }
 
 .filter {
@@ -170,7 +170,7 @@ img.logo {
   transform: rotate(180deg);
 }
 .filter .filterWrapper .filter-listbox {
-  display: flex;
+  display: none;
   flex-direction: column;
   list-style: none;
   position: absolute;

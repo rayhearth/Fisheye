@@ -1,7 +1,5 @@
 .displayDropDown {
-    .filter-listbox {
-        display: flex;
-    }
+        display: flex !important;
 }
 
 .filter {
@@ -45,7 +43,7 @@
             }
         }
         .filter-listbox {
-            display: flex;
+            display: none;
             flex-direction: column;
             list-style: none;
             position: absolute;

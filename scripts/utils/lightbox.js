@@ -20,14 +20,18 @@ const openLightbox = (e) => {
     document.body.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
     lightbox.scrollTo(0, 0)
-    let currentMedia = e.target.parentNode
+    let currentMedia
+    if (e.type == 'click'){
+        currentMedia = e.target.parentNode
+    } else{
+        currentMedia = e.target
+    }
 
     index = parseInt(currentMedia.getAttribute('position'))
+    console.log(document.querySelector('#light').innerHTML)
     document.querySelector('#light').innerHTML = all[index].innerHTML
-    // console.log(index)
     // console.log(document.querySelector('#light'))
     lightbox.setAttribute('aria-hidden', 'false')
-    all[index].childNodes[1].removeAttribute('controls', '')
     lightbox.style.display = ''
 }
 
@@ -76,24 +80,34 @@ let startlightboxlistener = () => {
     // console.log(all)
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
+        m.addEventListener('keydown', (e) => {
+            // console.log(e)
+            if (e.key === 'Escape' || e.key === 'Esc') {
+                closeLightbox(e)
+            }
+            if (e.key === 'Enter') {
+                openLightbox(e)
+            }
+        })
     }
+
     nextBtn.addEventListener('click', next)
+    nextBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            next(e)
+        }
+    })
 
     prevBtn.addEventListener('click', previous)
+    prevBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            previous(e)
+        }
+    })
+
+
 }
 
 closeLightboxBtn.addEventListener('click', closeLightbox)
 
 //Commande au clavier
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' || e.key === 'Esc') {
-        closeLightbox(e)
-    } else if (e.key === 'Enter') {
-        openLightbox(e)
-    }
-    else if (e.key === 'ArrowRight') {
-        next(e)
-    } else if (e.key === 'ArrowLeft') {
-        previous(e)
-    }
-})

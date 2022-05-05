@@ -3,32 +3,35 @@
 let dropDownBtn = document.querySelector('#filter-btn')
 console.log(dropDownBtn)
 
-let filterList = document.querySelector('filter-listbox')
+let filterList = document.querySelector('.filter-listbox')
 let filterpop = document.querySelector('#pop')
 let filterDate = document.querySelector('#date')
 let filterTitle = document.querySelector('#title')
 
 let displayDropDown = (e) => {
-    document.body.classList.add('displayDropDown')
+    if (!filterList.classList.contains('displayDropDown')) {
+        filterList.classList.add('displayDropDown')
+        dropDownBtn.getAttribute('aria-expanded', true)
+    } else {
+        filterList.classList.remove('displayDropDown')
+        dropDownBtn.getAttribute('aria-expanded', false)
+    }
+
     // console.log('azeaze')
-    dropDownBtn.getAttribute('aria-expanded', true)
-}
-
-hideFilter = (e) => {
-    document.body.classList.remove('displayDropDown')
-    dropDownBtn.getAttribute('aria-expanded', false)
-
+    
 }
 
 
 
-    // for (let btn of filterBtns) {
-    //     mediaSort(btn)
-    // }
+
+
+// for (let btn of filterBtns) {
+//     mediaSort(btn)
+// }
 
 let startDropDownListener = () => {
 
-    document.querySelector('#filter-btn').addEventListener('click',displayDropDown)
+    document.querySelector('#filter-btn').addEventListener('click', displayDropDown)
     // document.querySelector('#filter-btn').addEventListener('click',hideFilter)
 }
 
