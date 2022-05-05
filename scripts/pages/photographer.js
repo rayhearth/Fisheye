@@ -46,10 +46,10 @@ let displayAllMedia = async () => {
 
 
     let filterBtns = document.querySelectorAll('.filterOption')
-    console.log(filterBtns)
+    // console.log(filterBtns)
 
     let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
-    console.log(mediasFiltered)
+    // console.log(mediasFiltered)
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', e => {

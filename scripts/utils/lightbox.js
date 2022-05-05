@@ -22,6 +22,7 @@ const openLightbox = (e) => {
     lightbox.scrollTo(0, 0)
     //on cible le media sur lequel on presse
     let currentMedia = e.target
+    console.log(e.target)
     if (e.type == 'click'){
         //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode
