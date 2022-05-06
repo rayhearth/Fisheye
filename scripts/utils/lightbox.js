@@ -13,17 +13,16 @@ let index = null
 let all = []
 
 
-
+    
 const openLightbox = (e) => {
 
-    document.body.classList.add('overflow')
     lightbox.classList.add('lightboxOpen')
     window.scrollTo(0, 0)
     lightbox.scrollTo(0, 0)
     //on cible le media sur lequel on presse
     let currentMedia = e.target
     console.log(e.target)
-    if (e.type == 'click'){
+    if (e.type == 'click') {
         //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode
     }
@@ -65,7 +64,6 @@ let previous = () => {
 //Fermeture de la lightbox
 const closeLightbox = () => {
     lightbox.classList.remove('lightboxOpen')
-    document.body.classList.remove('overflow')
     // on replace le focus sur le button contact a la fermeture de la lightbox
     document.querySelector('#openModal').focus()
     lightbox.setAttribute('aria-hidden', 'true')

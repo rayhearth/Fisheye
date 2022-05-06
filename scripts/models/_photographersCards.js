@@ -33,8 +33,8 @@ export class PhotographersCards {
           <p class="tagline">${this._tagline}</p>
         </div>
         </div>
-            <button class="contactBtn" id="openModal" type="button" aria-labelleby="photographer contact ${this._name}" aria-controls="dialog" aria-haspopup="dialog">Contactez-moi</button>
-            <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="${this._name}">
+            <button class="contactBtn" id="openModal" type="button" aria-label="photographer contact ${this._name}" aria-controls="dialog" aria-haspopup="dialog">Contactez-moi</button>
+            <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="photo of ${this._name}">
         </div>
         </div>`
   }
