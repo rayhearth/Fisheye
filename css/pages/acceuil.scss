@@ -1,55 +1,70 @@
-
-
-header{
-    a.header-logo{
+header {
+    a.header-logo {
         margin-left: 100px;
-    } 
-    h1{
+    }
+    h1 {
         color: $red;
         margin-right: 100px;
     }
 }
 
-.photographer_section{
+.photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
-    article{
+    article {
         justify-self: center;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        a{
+        position: relative;
+        animation: photographAppear 1s ease-in-out;
+        a {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-decoration: none;
             font-size: 0;
-            img{
+            img {
                 margin-bottom: 20px;
+                transition: transform .3s ease-in-out;
+                &:hover{
+                    transform: scale(1.1);
+                }
             }
-            h2{
-                color: #D3573C;
+            h2 {
+                color: #d3573c;
                 font-size: 2.25rem;
                 text-align: center;
             }
         }
-        p{
-            line-height: 15px;
-        }
-        p.photographer-location{
-            font-size: 0.813rem;
-            color: $red;
-        }
-        p.photographer-tagline{
-            font-size: 0.625rem;
-        }
-        p.photographer-price{
-            font-size: 0.563rem;
-            color: $gray;
+        .photographerInfos{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .photographer-location {
+                font-size: 1rem;
+                color: $red;
+            }
+            .photographer-tagline,.photographer-price {
+                font-size: 0.75rem;
+            }
+            .photographer-price {
+                color: $gray;
+            }
         }
     }
 }
 
+@keyframes photographAppear {
+    from {
+        opacity: 0;
+        transform: translate(1rem, 1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}

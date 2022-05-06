@@ -421,6 +421,9 @@ header h1 {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  position: relative;
+  -webkit-animation: photographAppear 1s ease-in-out;
+          animation: photographAppear 1s ease-in-out;
 }
 .photographer_section article a {
   display: flex;
@@ -428,30 +431,56 @@ header h1 {
   align-items: center;
   text-decoration: none;
   font-size: 0;
+  transition: transform 0.3s ease-in-out;
 }
 .photographer_section article a img {
   margin-bottom: 20px;
 }
 .photographer_section article a h2 {
-  color: #D3573C;
+  color: #d3573c;
   font-size: 2.25rem;
   text-align: center;
 }
-.photographer_section article p {
-  line-height: 15px;
+.photographer_section article a:hover {
+  transform: scale(1.1);
 }
-.photographer_section article p.photographer-location {
-  font-size: 0.813rem;
+.photographer_section article .photographerInfos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photographer_section article .photographerInfos .photographer-location {
+  font-size: 1rem;
   color: #901C1C;
 }
-.photographer_section article p.photographer-tagline {
-  font-size: 0.625rem;
+.photographer_section article .photographerInfos .photographer-tagline, .photographer_section article .photographerInfos .photographer-price {
+  font-size: 0.75rem;
 }
-.photographer_section article p.photographer-price {
-  font-size: 0.563rem;
+.photographer_section article .photographerInfos .photographer-price {
   color: #525252;
 }
 
+@-webkit-keyframes photographAppear {
+  from {
+    opacity: 0;
+    transform: translate(1rem, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes photographAppear {
+  from {
+    opacity: 0;
+    transform: translate(1rem, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 main {
   margin: 0 100px;
   display: flex;
