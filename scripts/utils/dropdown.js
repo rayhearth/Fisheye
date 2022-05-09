@@ -11,10 +11,10 @@ let filterTitle = document.querySelector('#title')
 let displayDropDown = (e) => {
     if (!filterList.classList.contains('displayDropDown')) {
         filterList.classList.add('displayDropDown')
-        dropDownBtn.getAttribute('aria-expanded', true)
+        dropDownBtn.setAttribute('aria-expanded', true)
     } else {
         filterList.classList.remove('displayDropDown')
-        dropDownBtn.getAttribute('aria-expanded', false)
+        dropDownBtn.setAttribute('aria-expanded', false)
     }    
 }
 

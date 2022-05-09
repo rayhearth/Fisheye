@@ -33,7 +33,6 @@ let showModalThanks = (e) => {
 }
 
 let closeModal = (e) => {
-    e.preventDefault()
     modal.classList.remove('modal-open')
     document.body.classList.remove('overflow')
 
@@ -114,14 +113,11 @@ let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             OpenModal(e)
-        } else if (e.key === 'Escape' || e.key === 'Esc') {
-            closeModal(e)
-            console.log(e)
         }
     })
 
     document.querySelector('#closeModal').addEventListener('click', closeModal)
-    
+
     document.querySelector('#sendForm').addEventListener('click', (e) => {
         e.preventDefault()
         validation(e)
@@ -154,5 +150,12 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault()
     }
 
+})
+
+//ajout de la fermeture au clavier de la modale
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeModal()
+    }
 })
 
