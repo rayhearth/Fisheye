@@ -10,13 +10,15 @@ let form = document.forms['contactForm']
 let modalThanks = document.querySelector('#thanks')
 
 let OpenModal = (e) => {
-    document.body.classList.add('modal-open')
+    e.preventDefault()
+    modal.classList.add('modal-open')
     document.body.classList.add('overflow')
     window.scrollTo(0, 0)
     modal.scrollTo(0, 0)
     firstEletFocus.focus()
 
     modal.setAttribute('aria-hidden', 'false')
+    document.body.setAttribute('aria-hidden', 'true')
 
     form.reset()
     form.style.display = ''
@@ -31,10 +33,12 @@ let showModalThanks = (e) => {
 }
 
 let closeModal = (e) => {
-    e.preventDefault
-    document.body.classList.remove('modal-open')
+    e.preventDefault()
+    modal.classList.remove('modal-open')
     document.body.classList.remove('overflow')
+
     modal.setAttribute('aria-hidden', 'true')
+    document.body.setAttribute('aria-hidden', 'false')
 
     title.style.display = ''
     senForm.style.display = ''
@@ -107,27 +111,21 @@ let validation = (e) => {
 
 let startcontactlistener = () => {
     document.querySelector('#openModal').addEventListener('click', OpenModal)
-    document.addEventListener('keydown', (e) => {
+    document.querySelector('#openModal').addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             OpenModal(e)
         } else if (e.key === 'Escape' || e.key === 'Esc') {
             closeModal(e)
+            console.log(e)
         }
     })
 
     document.querySelector('#closeModal').addEventListener('click', closeModal)
-    // document.addEventListener('keydown', (e) => {
-    //     if (e.key === 'Escape' || e.key === 'Esc') {
-    //         closeModal(e)
-    //     }
-    // })
-
+    
     document.querySelector('#sendForm').addEventListener('click', (e) => {
         e.preventDefault()
         validation(e)
     })
-
-
 }
 
 // ajout d'un focus à tous les éléments de la modale

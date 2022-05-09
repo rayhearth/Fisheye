@@ -1,6 +1,3 @@
-.lightboxOpen {
-    display: flex !important;
-}
 .lightbox {
   display: none;
   // flex-direction: column;
@@ -81,4 +78,7 @@
       padding: 1rem 0;
     }
   }
+}
+.lightboxOpen {
+  display: flex;
 }
