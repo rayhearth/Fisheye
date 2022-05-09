@@ -9,13 +9,13 @@ let lightbox = document.querySelector("#lightbox")
 let prevBtn = document.querySelector('#lightbox__prev')
 let nextBtn = document.querySelector('#lightbox__next')
 
-let index = null
+//On stocke tous nos médias sous un array et pointe index
 let all = []
+let index = null
 
 
-
+//Ouverture de la lightbox et remplissage de la lightbox , on cible le currentMédia et mise en place de sa position
 const openLightbox = (e) => {
-
     lightbox.classList.add('lightboxOpen')
     document.body.classList.add('overflow')
     window.scrollTo(0, 0)
@@ -38,7 +38,7 @@ const openLightbox = (e) => {
     lightbox.style.display = ''
 }
 
-
+//Affichage du prochain média
 let next = () => {
     //on ajoute la prochaine position a notre index
     index = index + 1
@@ -56,8 +56,9 @@ let next = () => {
     document.querySelector('#light').innerHTML = all[index].innerHTML
 }
 
+//Affichage du précédent média
 let previous = () => {
-    //On enlève un position au média actuel
+    //On enlève une position au média actuel
     index = index - 1
     //si on arrive au début du tableau, on repart sur le dernier élément
     if (index == -1) {
@@ -90,32 +91,29 @@ let startlightboxlistener = () => {
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
         m.addEventListener('keydown', (e) => {
-            console.log(e)
+            // console.log(e)
             if (e.key === 'Escape' || e.key === 'Esc') {
                 closeLightbox(e)
             }
             if (e.key === 'Enter') {
                 openLightbox(e)
             }
+            if (e.key === 'ArrowRight') {
+                next(e)
+            }
+            if (e.key === 'ArrowLeft') {
+                previous(e)
+            }
         })
     }
 
+    //Branchement fermeture au click
+    closeLightboxBtn.addEventListener('click', closeLightbox)
+
+    //Branchement de la navigation au click
     nextBtn.addEventListener('click', next)
-    nextBtn.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-            next(e)
-        }
-    })
 
     prevBtn.addEventListener('click', previous)
-    prevBtn.addEventListener('keydown', (e) => {
-        console.log(e)
-        if (e.key === 'ArrowLeft') {
-            previous(e)
-        }
-    })
-
 
 }
 
-closeLightboxBtn.addEventListener('click', closeLightbox)

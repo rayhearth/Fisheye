@@ -22,5 +22,10 @@ let displayDropDown = (e) => {
 let startDropDownListener = () => {
 
     document.querySelector('#filter-btn').addEventListener('click', displayDropDown)
+    document.querySelector('#filter-btn').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            displayDropDown(e)
+        }
+    })
 }
 

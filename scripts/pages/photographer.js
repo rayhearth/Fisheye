@@ -25,31 +25,37 @@ let displayOnePhotograph = async () => {
 
 window.addEventListener('load', displayOnePhotograph())
 
+
+//Mise en place des médias, de la fonction de tri et de la lightbox
 let displayAllMedia = async () => {
 
-
+    //on stocke ds la variable media notre photographfactory
     let media = new PhotographFactory()
     // console.log(media)
+    //on se met en attente de getAllMedia pour recevoir tous les médias du photographe passé ds l'url 
     let AllMedias = await media.getAllMedia(urlId)
     // console.log(urlId)
     // console.log(AllMedias)
+    //on injecte tous nos médias dans la section galleryContainer
     document.querySelector('#galleryContainer').innerHTML = AllMedias.gallery
     // console.log(document.querySelector('.galleryContainer'))
     // console.log(AllMedias.gallery)
 
+    //appel des listeners de la lightbox
     startlightboxlistener()
     //appel de la methode des likes
     media.cuntMediaLike()
 
-    //Mise en place du filtre
+    //appel des listeners de la dropdown
     startDropDownListener()
 
-
+    // on stocke ds la variable filterBtns nos 3 btns 
     let filterBtns = document.querySelectorAll('.filterOption')
     // console.log(filterBtns)
 
+    //on met les médias en array
     let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
-    // console.log(mediasFiltered)
+
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', e => {
@@ -61,7 +67,7 @@ let displayAllMedia = async () => {
                     break;
                 case 'filter-date': mediasFiltered.sort((a, b) => {
                     // console.log(b.dataset.date)
-                    return b.dataset.date - a.dataset.date 
+                    return a.dataset.date.localeCompare(b.dataset.date)
                 })
                     break;
                 case 'filter-title': mediasFiltered.sort((a, b) => {
@@ -74,6 +80,8 @@ let displayAllMedia = async () => {
             document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML)
         })
     })
+
+    
 
 
 }
