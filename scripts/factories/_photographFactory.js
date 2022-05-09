@@ -13,6 +13,7 @@ export class PhotographFactory extends Api {
       /*on se met en attente des informations de note class API*/
       let photographs = await this.get()
       // console.log(photographs)
+      //on parcours notre array pour récup chaque photographe et on instancie notre phtographersCards
       const photographerProfile = photographs.map(p => new PhotographersCards(p))
       /*on retourne notre render*/
       return this.renderAllPhotograph(photographerProfile)
@@ -58,9 +59,9 @@ export class PhotographFactory extends Api {
       //on reste en attente de la fonction getMediaApi
       let medias = await this.getMediaApi(photographerId)
       // console.log(medias)
-      //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
       let likes = 0
       let position = -1
+      //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
       let renderPicture = medias.map(m => {
         likes += m.likes
         position++
@@ -90,16 +91,15 @@ export class PhotographFactory extends Api {
 
   // Ajout des likes et calcul total
   cuntMediaLike() {
-    let allLegend = document.querySelectorAll('.media-legend-like')
+
+    let allLegend = document.querySelectorAll('.hearth')
     // console.log(allLegend)
     for (let h of allLegend) {
       // console.log(h)
       h.addEventListener('click', e => {
         e.preventDefault()
-        let legend = e.target.parentNode
-        // console.log(legend)
-        let mediaLegendCunt = legend.children[0]//je cible le premier ele de mon array pr recup mon chiffre like
-        // console.log(mediaLegendCunt)
+        let mediaLegendCunt = e.target.parentNode.children[0]//je cible le premier ele de mon array pr recup mon chiffre like
+        console.log(mediaLegendCunt)
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
         // console.log(mediaLegendCunt)
 

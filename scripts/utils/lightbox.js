@@ -91,7 +91,6 @@ let startlightboxlistener = () => {
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
         m.addEventListener('keydown', (e) => {
-            // console.log(e)
             if (e.key === 'Escape' || e.key === 'Esc') {
                 closeLightbox(e)
             }
