@@ -36,6 +36,7 @@ export class PhotographersCards {
             <button class="contactBtn" id="openModal" type="button" aria-label="photographer contact ${this._name}" aria-controls="dialog" aria-haspopup="dialog">Contactez-moi</button>
             <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="photo of ${this._name}">
         </div>
-        </div>`
+        </div>
+        `
   }
 }

@@ -60,7 +60,7 @@ export class PhotographFactory extends Api {
       let medias = await this.getMediaApi(photographerId)
       // console.log(medias)
       let likes = 0
-      let position = -1
+      let position = -1//car un array demarre de zéro
       //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
       let renderPicture = medias.map(m => {
         likes += m.likes
@@ -92,20 +92,36 @@ export class PhotographFactory extends Api {
   // Ajout des likes et calcul total
   cuntMediaLike() {
 
-    let allLegend = document.querySelectorAll('.hearth')
+    let allLegend = document.querySelectorAll('.media-legend-like')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
     // console.log(allLegend)
+    const addLike = (e) => {
+      e.preventDefault()
+      let mediaLegendCunt = document.querySelectorAll('.media-legend-cunt')//je cible la span qui a l'id like-cunt
+      // console.log(mediaLegendCunt)
+      if (!mediaLegendCunt.classList.contains('Liked')) {
+        mediaLegendCunt.classList.add('Liked')
+        //si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
+        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
+      } else {
+        //sinon je lui retire 1
+        mediaLegendCunt.classList.remove('Liked')
+        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) - 1
+      }
+
+      let totalLikes = document.querySelector('#footerInfosCunt')
+      // console.log(totalLikes)
+      totalLikes.textContent = parseInt(totalLikes.textContent) + 1
+    }
+
+    //Branchement de listeners au click et clavier
     for (let h of allLegend) {
       // console.log(h)
-      h.addEventListener('click', e => {
-        e.preventDefault()
-        let mediaLegendCunt = e.target.parentNode.children[0]//je cible le premier ele de mon array pr recup mon chiffre like
-        console.log(mediaLegendCunt)
-        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
-        // console.log(mediaLegendCunt)
-
-        let totalLikes = document.querySelector('#footerInfosCunt')
-        // console.log(totalLikes)
-        totalLikes.textContent = parseInt(totalLikes.textContent) + 1
+      h.addEventListener('click', addLike)
+      h.addEventListener('keydown', e => {
+        // e.preventDefault()
+        if (e.key === 'Enter') {
+          addLike(e)
+        }
       })
     }
   }
