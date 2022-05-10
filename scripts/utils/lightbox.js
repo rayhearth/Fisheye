@@ -22,20 +22,23 @@ const openLightbox = (e) => {
     lightbox.scrollTo(0, 0)
     lightbox.focus()
     //on cible le media sur lequel on presse
-    let currentMedia = e.target
-    // console.log(e.target)
+    let currentMedia = e.target.closest('figure')
+
     if (e.type == 'click') {
         //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode
     }
     //On recupere la position de notre media via l'att position et on fait un parseInt car il s'agit d'un chiffre
     index = parseInt(currentMedia.getAttribute('position'))
+    // console.log(index)
     //On injecte ds notre lightbox le media sur lequel on vient d'interagir
     document.querySelector('#light').innerHTML = all[index].innerHTML
+    // console.log(all[index])
 
     lightbox.setAttribute('aria-hidden', 'false')
     document.body.setAttribute('aria-hidden', 'true')
     lightbox.style.display = ''
+
 }
 
 //Affichage du prochain média
@@ -90,17 +93,18 @@ let startlightboxlistener = () => {
     // console.log(all)
     for (let m of all) {//pour chaque media de all on branche les listeners
         m.addEventListener('click', openLightbox)
-        m.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' || e.key === 'Esc') {
-                closeLightbox(e)
-            }
+    }
+
+    allKey = document.querySelectorAll('.mediaContentCard')//on recupère tous nos medias sur figure pour la navigation au clavier
+    for (let k of allKey) {
+        k.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 openLightbox(e)
-            }
-            if (e.key === 'ArrowRight') {
+            } else if (e.key === 'Escape' || e.key === 'Esc') {
+                closeLightbox(e)
+            } else if (e.key === 'ArrowRight') {
                 next(e)
-            }
-            if (e.key === 'ArrowLeft') {
+            } else if (e.key === 'ArrowLeft') {
                 previous(e)
             }
         })

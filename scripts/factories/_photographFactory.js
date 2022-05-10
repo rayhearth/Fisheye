@@ -96,7 +96,7 @@ export class PhotographFactory extends Api {
     // console.log(allLegend)
     const addLike = (e) => {
       e.preventDefault()
-      let mediaLegendCunt = document.querySelectorAll('.media-legend-cunt')//je cible la span qui a l'id like-cunt
+      let mediaLegendCunt = document.getElementsByTagName('span')//je cible la span qui a l'id like-cunt
       // console.log(mediaLegendCunt)
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')

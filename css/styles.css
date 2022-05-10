@@ -114,14 +114,16 @@ img.logo {
 .lightbox .lightbox-media p a {
   color: #901C1C;
 }
-.lightbox .lightbox-media h2 {
-  color: #901C1C;
-  font-size: 24px;
-  padding: 1rem 0;
-}
 
 .lightboxOpen {
   display: flex;
+}
+.lightboxOpen figcaption {
+  display: block;
+  justify-self: flex-start;
+  font-size: 1.5rem;
+  color: #901C1C;
+  font-weight: bold;
 }
 
 .filter {
@@ -516,76 +518,61 @@ main section.portfolio .galleryContainer {
   width: 100%;
   padding: 2%;
 }
-main section.portfolio .galleryContainer article {
+main section.portfolio .galleryContainer figure {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   width: 33.33%;
   min-width: 380px;
   min-height: 370px;
+  padding: 2%;
   position: relative;
 }
-main section.portfolio .galleryContainer article .mediaCard {
+main section.portfolio .galleryContainer figure .mediaCard {
   border-radius: 5px;
   cursor: pointer;
 }
-main section.portfolio .galleryContainer article .mediaCard img,
-main section.portfolio .galleryContainer article .mediaCard video {
+main section.portfolio .galleryContainer figure .mediaCard img,
+main section.portfolio .galleryContainer figure .mediaCard video {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 350px;
+  width: 100%;
   height: 300px;
+  border-radius: 5px;
 }
-main section.portfolio .galleryContainer article .mediaCard video {
-  position: relative;
-}
-main section.portfolio .galleryContainer article .mediaCard p {
+main section.portfolio .galleryContainer figure .mediaCard p {
   position: absolute;
   top: 50%;
   z-index: -1;
+  width: 90%;
 }
-main section.portfolio .galleryContainer article .mediaCard p a {
+main section.portfolio .galleryContainer figure .mediaCard p a {
   color: #901C1C;
 }
-main section.portfolio .galleryContainer article .mediaCard svg {
-  position: absolute;
-  fill: #901C1C;
-  z-index: -1;
-  height: 36px;
-  font-size: 1.5rem;
-  top: 35%;
-  left: 50%;
+main section.portfolio .galleryContainer figure .mediaCard figcaption {
+  display: none;
 }
-main section.portfolio .galleryContainer article .mediaCard h2 {
-  font-size: 1.5rem;
-  color: #901C1C;
-  position: relative;
-  padding-top: 10px;
-  width: 80%;
-}
-main section.portfolio .galleryContainer article .media-legend {
+main section.portfolio .galleryContainer figure .mediaLegend {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 50px;
+}
+main section.portfolio .galleryContainer figure .mediaLegend h2 {
+  font-size: 1.5rem;
   color: #901C1C;
 }
-main section.portfolio .galleryContainer article .media-legend span {
+main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like .media-legend-cunt {
   font-size: 1.5rem;
   margin-right: 5px;
+  color: #901C1C;
 }
-main section.portfolio .galleryContainer article .media-legend .media-legend-like {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row;
-  position: absolute;
-  right: 15px;
-  top: 310px;
-  cursor: pointer;
-}
-main section.portfolio .galleryContainer article .media-legend .media-legend-like svg {
+main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like svg {
   height: 24px;
   fill: #901C1C;
 }

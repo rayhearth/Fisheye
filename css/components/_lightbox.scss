@@ -71,14 +71,16 @@
         color: $red;
       }
     }
-    h2 {
-      // width: 100%;
-      color: $red;
-      font-size: 24px;
-      padding: 1rem 0;
-    }
   }
 }
 .lightboxOpen {
   display: flex;
+  figcaption{
+    display: block;
+    justify-self: flex-start;
+    font-size: 1.5rem;
+    color: $red;
+    font-weight: bold;
+    // width: 85%;
+  }
 }
