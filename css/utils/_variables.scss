@@ -1,16 +1,27 @@
 // Colors
-$red: #901C1C;
-$red-light: #D3573C;
+$red: #901c1c;
+$red-light: #d3573c;
 
-$pink: #DB8876;
+$pink: #db8876;
 $gray: #525252;
-$lightgray: #FAFAFA;
-
+$lightgray: #fafafa;
 
 // Font
-$font-family:   'DM Sans', sans-serif;
-$font-size:     1.125rem;
-$line-height:   1.3;
+$font-family: "DM Sans", sans-serif;
+$font-size: 1.125rem;
+$line-height: 1.3;
 
 //Shadow
 $shadow: 1px 3px 8px 0px rgb(0 0 0 / 20%);
+
+//Animation
+@keyframes photographAppear {
+    from {
+        opacity: 0;
+        transform: translate(1rem, 1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}

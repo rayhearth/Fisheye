@@ -48,6 +48,7 @@ main {
                 min-height: 370px;
                 padding: 2%;
                 position: relative;
+                animation: photographAppear 1s ease-in-out;
                 .mediaCard {
                     border-radius: 5px;
                     cursor: pointer;

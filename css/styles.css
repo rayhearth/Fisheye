@@ -1,3 +1,23 @@
+@-webkit-keyframes photographAppear {
+  from {
+    opacity: 0;
+    transform: translate(1rem, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+@keyframes photographAppear {
+  from {
+    opacity: 0;
+    transform: translate(1rem, 1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 /*****RESET*****/
 * {
   margin: 0;
@@ -67,7 +87,7 @@ img.logo {
 .lightbox .lightbox__prev {
   width: 50px;
   height: 80%;
-  fill: #901C1C;
+  fill: #901c1c;
   top: 50px;
   right: 0;
   z-index: 11;
@@ -90,7 +110,7 @@ img.logo {
   z-index: 12;
 }
 .lightbox .lightbox__close svg {
-  fill: #901C1C;
+  fill: #901c1c;
   height: 32.5rem;
 }
 .lightbox .lightbox-media {
@@ -112,7 +132,7 @@ img.logo {
   font-size: 1rem;
 }
 .lightbox .lightbox-media p a {
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .lightboxOpen {
@@ -122,7 +142,7 @@ img.logo {
   display: block;
   justify-self: flex-start;
   font-size: 1.5rem;
-  color: #901C1C;
+  color: #901c1c;
   font-weight: bold;
 }
 
@@ -142,7 +162,7 @@ img.logo {
   cursor: pointer;
 }
 .filter .filterWrapper {
-  background-color: #901C1C;
+  background-color: #901c1c;
   position: relative;
   width: 170px;
   border-radius: 5px;
@@ -152,11 +172,11 @@ img.logo {
   transition: all ease-in-out 0.3s;
 }
 .filter .filterWrapper:hover {
-  background-color: #D3573C;
+  background-color: #d3573c;
   color: black;
 }
 .filter .filterWrapper:focus {
-  background-color: #D3573C;
+  background-color: #d3573c;
   color: black;
 }
 .filter .filterWrapper label {
@@ -189,7 +209,7 @@ img.logo {
   border: none;
   color: white;
   width: 100%;
-  background-color: #901C1C;
+  background-color: #901c1c;
   display: flex;
   align-items: center;
   z-index: 3;
@@ -201,11 +221,11 @@ img.logo {
   transition: all 0.3s linear;
 }
 .filter .filterWrapper .filter-listbox button:hover {
-  background-color: #D3573C;
+  background-color: #d3573c;
   color: black;
 }
 .filter .filterWrapper .filter-listbox button:focus {
-  background-color: #D3573C;
+  background-color: #d3573c;
   color: black;
 }
 .filter .filterWrapper .filter-listbox button:first-child {
@@ -237,8 +257,8 @@ img.logo {
   padding: 11px;
   width: 170px;
   height: 70px;
-  background-color: #901C1C;
-  border: 1px solid #901C1C;
+  background-color: #901c1c;
+  border: 1px solid #901c1c;
   border-radius: 5px;
   margin: 20px 0;
   outline: none;
@@ -246,9 +266,9 @@ img.logo {
   transition: all 0.3s;
 }
 .contactBtn:hover, .contactBtn:focus {
-  background-color: #FAFAFA;
-  color: #901C1C;
-  border: 2px solid #901C1C;
+  background-color: #fafafa;
+  color: #901c1c;
+  border: 2px solid #901c1c;
 }
 
 .contactModal {
@@ -329,7 +349,7 @@ img.logo {
 .contactModal .content form .formData input:focus, .contactModal .content form .formData input:hover,
 .contactModal .content form .formData textarea:focus,
 .contactModal .content form .formData textarea:hover {
-  border: 2px solid #901C1C;
+  border: 2px solid #901c1c;
 }
 .contactModal .content form .formData input {
   width: 100%;
@@ -339,7 +359,7 @@ img.logo {
   height: 170px;
 }
 .contactModal .content form .formData textarea:focus, .contactModal .content form .formData textarea:hover {
-  border: 2px solid #901C1C;
+  border: 2px solid #901c1c;
 }
 .contactModal .content .thanks {
   font-size: 30px;
@@ -395,7 +415,7 @@ header a.header-logo {
   margin-left: 100px;
 }
 header h1 {
-  color: #901C1C;
+  color: #901c1c;
   margin-right: 100px;
 }
 
@@ -403,7 +423,7 @@ header a.header-logo {
   margin-left: 100px;
 }
 header h1 {
-  color: #901C1C;
+  color: #901c1c;
   margin-right: 100px;
 }
 
@@ -449,36 +469,16 @@ header h1 {
 }
 .photographer_section article .photographerInfos .photographer-location {
   font-size: 1rem;
-  color: #901C1C;
+  color: #901c1c;
 }
-.photographer_section article .photographerInfos .photographer-tagline, .photographer_section article .photographerInfos .photographer-price {
+.photographer_section article .photographerInfos .photographer-tagline,
+.photographer_section article .photographerInfos .photographer-price {
   font-size: 0.75rem;
 }
 .photographer_section article .photographerInfos .photographer-price {
   color: #525252;
 }
 
-@-webkit-keyframes photographAppear {
-  from {
-    opacity: 0;
-    transform: translate(1rem, 1rem);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes photographAppear {
-  from {
-    opacity: 0;
-    transform: translate(1rem, 1rem);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
-}
 main {
   margin: 0 100px;
   display: flex;
@@ -494,15 +494,15 @@ main section.photographer .photographer-header {
   align-items: center;
   height: 300px;
   padding: 0 35px;
-  background: #FAFAFA;
+  background: #fafafa;
 }
 main section.photographer .photographer-header .infosPhotographer h1 {
-  color: #D3573C;
+  color: #d3573c;
   font-size: 2.25rem;
 }
 main section.photographer .photographer-header .infosPhotographer .locationandtag .location {
   padding: 10px 0;
-  color: #901C1C;
+  color: #901c1c;
   font-size: 1.75rem;
 }
 main section.portfolio {
@@ -527,6 +527,8 @@ main section.portfolio .galleryContainer figure {
   min-height: 370px;
   padding: 2%;
   position: relative;
+  -webkit-animation: photographAppear 1s ease-in-out;
+          animation: photographAppear 1s ease-in-out;
 }
 main section.portfolio .galleryContainer figure .mediaCard {
   border-radius: 5px;
@@ -547,7 +549,7 @@ main section.portfolio .galleryContainer figure .mediaCard p {
   width: 90%;
 }
 main section.portfolio .galleryContainer figure .mediaCard p a {
-  color: #901C1C;
+  color: #901c1c;
 }
 main section.portfolio .galleryContainer figure .mediaCard figcaption {
   display: none;
@@ -560,7 +562,7 @@ main section.portfolio .galleryContainer figure .mediaLegend {
 }
 main section.portfolio .galleryContainer figure .mediaLegend h2 {
   font-size: 1.5rem;
-  color: #901C1C;
+  color: #901c1c;
 }
 main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like {
   display: flex;
@@ -570,11 +572,11 @@ main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like 
 main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like .media-legend-cunt {
   font-size: 1.5rem;
   margin-right: 5px;
-  color: #901C1C;
+  color: #901c1c;
 }
 main section.portfolio .galleryContainer figure .mediaLegend .media-legend-like svg {
   height: 24px;
-  fill: #901C1C;
+  fill: #901c1c;
 }
 
 footer {
@@ -585,7 +587,7 @@ footer {
   position: sticky;
   bottom: 0;
   left: 60%;
-  background-color: #DB8876;
+  background-color: #db8876;
   width: 370px;
   height: 70px;
   padding: 0 20px;
