@@ -1,0 +1,23 @@
+{
+  "name": "juponemmanuelle_6_18012022",
+  "version": "1.0.0",
+  "description": "Open classroom Fisheye Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rayhearth/JuponEmmanuelle_6_18012022.git"
+  },
+  "author": "Emmanuelle Jupon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rayhearth/JuponEmmanuelle_6_18012022/issues"
+  },
+  "homepage": "https://github.com/rayhearth/JuponEmmanuelle_6_18012022#readme",
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  }
+}

@@ -110,8 +110,6 @@ export class PhotographFactory extends Api {
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) - 1
         totalLikes.textContent = parseInt(totalLikes.textContent) - 1
       }
-
-
     }
 
     //Branchement de listeners au click et clavier
