@@ -92,17 +92,18 @@ export class PhotographFactory extends Api {
   // Ajout des likes et calcul total
   cuntMediaLike() {
 
-    let allLegend = document.querySelectorAll('.media-legend-like')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
+    let allLegend = document.querySelectorAll('.hearth')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
     // console.log(allLegend)
     const addLike = (e) => {
-      e.preventDefault()
-      let mediaLegendCunt = document.querySelector('.media-legend-cunt')//je cible la span qui a l'id like-cunt
+    
+      let mediaLegendCunt = e.target.previousElementSibling//je cible la span qui a l'id like-cunt
       console.log(mediaLegendCunt)
       
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')
         //si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
+  
       } else {
         //sinon je lui retire 1
         mediaLegendCunt.classList.remove('Liked')
@@ -116,7 +117,7 @@ export class PhotographFactory extends Api {
 
     //Branchement de listeners au click et clavier
     for (let h of allLegend) {
-      console.log(h)
+      // console.log(h)
       h.addEventListener('click', addLike)
       h.addEventListener('keydown', e => {
         // e.preventDefault()

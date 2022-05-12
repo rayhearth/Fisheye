@@ -2,6 +2,7 @@
 
 let dropDownBtn = document.querySelector('#filter-btn')
 // console.log(dropDownBtn)
+let dropDownBtnKey = document.querySelector('.filterWrapper')
 
 let filterList = document.querySelector('.filter-listbox')
 let filterpop = document.querySelector('#pop')
@@ -21,12 +22,13 @@ const displayDropDown = (e) => {
 
 let startDropDownListener = () => {
     dropDownBtn.addEventListener('click', displayDropDown)
-    console.log('azeaze')
-    dropDownBtn.addEventListener('keydown', () => {
+    // console.log('azeaze')
+    dropDownBtnKey.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             console.log('azeaze')
             displayDropDown(e)
         }
     })
+    
 }
 

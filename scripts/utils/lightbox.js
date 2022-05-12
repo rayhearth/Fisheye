@@ -23,7 +23,7 @@ const openLightbox = (e) => {
     lightbox.focus()
     //on cible la div sur laquelle on presse
     let currentMedia = e.target.closest('div')
-
+    console.log(e.target)
     if (e.type == 'click') {
         //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode
@@ -95,8 +95,7 @@ let startlightboxlistener = () => {
         m.addEventListener('click', openLightbox)
     }
 
-    allKey = document.querySelectorAll('.mediaContentCard')//on recupère tous nos medias sur figure pour la navigation au clavier
-    
+    allKey = document.querySelectorAll('.mediaCard')//on recupère tous nos medias sur figure pour la navigation au clavier
     for (let k of allKey) {
         k.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
