@@ -1,35 +1,33 @@
 export class MediaCards {
-    constructor(medias, position) {
-        // console.log(media)
-        this._id = medias.id
-        this._photographerId = medias.photographerId
-        this._title = medias.title
-        this._likes = medias.likes
-        this._date = medias.date
-        this._price = medias.price
-        this._position = position
-        if (medias.hasOwnProperty("image")) {
-            this._type = 'image'
-            this._media = medias.image
-            //si le media a pour nom "image" alors il va nous retourner une img
-        } else {
-            //sinon il nous retourne notre Video
-            this._type = 'video'
-            this._media = medias.video
-        }
+  constructor(medias, position) {
+    this._id = medias.id
+    this._photographerId = medias.photographerId
+    this._title = medias.title
+    this._likes = medias.likes
+    this._date = medias.date
+    this._price = medias.price
+    this._position = position
+    if (medias.hasOwnProperty("image")) {
+      this._type = 'image'
+      this._media = medias.image
+      // si le media a pour nom "image" alors il va nous retourner une img
+    } else {
+      // sinon il nous retourne notre Video
+      this._type = 'video'
+      this._media = medias.video
     }
+  }
 
-
-    renderMedia() {
-        if (this._type === 'image') {
-            return this.renderImage()
-        } else {
-            return this.renderVideo()
-        }
+  renderMedia() {
+    if (this._type === 'image') {
+      return this.renderImage()
+    } else {
+      return this.renderVideo()
     }
+  }
 
-    renderImage() {
-        return `
+  renderImage () {
+    return `
         <figure class="mediaContentCard" position=${this._position} data-title="${this._title}" data-cunt="${this._likes}"
         data-date="${this._date}">
         <div class="mediaCard mediaLink" tabindex="0" position=${this._position} media-id=${this._id}>
@@ -48,11 +46,10 @@ export class MediaCards {
           </div>
         </div>
       </figure>`
+  }
 
-    }
-
-    renderVideo() {
-        return `
+  renderVideo () {
+    return `
         <figure class="mediaContentCard" position=${this._position} data-title="${this._title}" data-cunt="${this._likes}"
         data-date="${this._date}">
             <div class="mediaCard mediaLink" tabindex="0" position=${this._position} media-id=${this._id}>
@@ -76,6 +73,5 @@ export class MediaCards {
                 </div>
             </div>
         </figure>`
-    }
-
+  }
 }

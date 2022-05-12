@@ -2,19 +2,16 @@ import { Api } from '../api/_api.js'
 import { PhotographersCards } from '../models/_photographersCards.js'
 import { MediaCards } from '../models/_mediaCards.js'
 
-
-/*ma class Photograph hérite de ma class Api*/
+/* ma class Photograph hérite de ma class Api */
 export class PhotographFactory extends Api {
-
-
-  /*méthode pour recupérer tous les photographes*/
+  /* méthode pour recupérer tous les photographes */
   async getAllPhotograph() {
     try {
-      /*on se met en attente des informations de note class API*/
-      let photographs = await this.get()
-      //on parcours notre array pour récup chaque photographe et on instancie notre phtographersCards
+      /* on se met en attente des informations de note class API */
+      const photographs = await this.get()
+      // on parcours notre array pour récup chaque photographe et on instancie notre phtographersCards
       const photographerProfile = photographs.map(p => new PhotographersCards(p))
-      /*on retourne notre render*/
+      /* on retourne notre render */
       return this.renderAllPhotograph(photographerProfile)
     } catch (err) {
       console.log(err)
@@ -23,7 +20,7 @@ export class PhotographFactory extends Api {
 
   // Render index
   renderAllPhotograph(photographs) {
-    /*variable qui recoit le template de renderOnePhotograph*/
+    /* variable qui recoit le template de renderOnePhotograph */
     let all = ''
     // pour chacun des photographes récup le render
     for (let photograph of photographs) {
@@ -32,17 +29,16 @@ export class PhotographFactory extends Api {
     return all
   }
 
-
-  /*méthode pour recupérer un seul photographe*/
+  /* méthode pour recupérer un seul photographe */
   async getOnePhotograph(id) {
-    //on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
+    // on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
     try {
-      let Onephotograph = await this.getPhotograph(id)
-      //on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
-      let photographerprofile = new PhotographersCards(Onephotograph)
+      const Onephotograph = await this.getPhotograph(id)
+      // on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
+      const photographerprofile = new PhotographersCards(Onephotograph)
       // console.log(photographerprofile)
-      //on cree notre render en lui passant notre photograph profile et on appelle notre methode
-      let renderProfile = photographerprofile.renderPhotographHeader()
+      // on cree notre render en lui passant notre photograph profile et on appelle notre methode
+      const renderProfile = photographerprofile.renderPhotographHeader()
       // on retourne notre render final avec toutes les infos necessaires
       return renderProfile
     } catch (err) {
@@ -50,14 +46,14 @@ export class PhotographFactory extends Api {
     }
   }
 
-  /*méthode pour récupérer tous les médias*/
+  /* méthode pour récupérer tous les médias */
   async getAllMedia(photographerId) {
     try {
-      //on reste en attente de la fonction getMediaApi
-      let medias = await this.getMediaApi(photographerId)
+      // on reste en attente de la fonction getMediaApi
+      const medias = await this.getMediaApi(photographerId)
       let likes = 0
-      let position = -1//car un array demarre de zéro
-      //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
+      let position = -1// car un array demarre de zéro
+      // On declare render picture qui va parcourir notre array obtenu via getMediaApi 
       let renderPicture = medias.map(m => {
         likes += m.likes
         position++
@@ -74,7 +70,7 @@ export class PhotographFactory extends Api {
 
   // Render index
   renderAllMedias(medias) {
-    /*variable qui recoit le template de renderOnePhotograph*/
+    /* variable qui recoit le template de renderOnePhotograph */
     let all = ''
     // pour chacun des photographes récup le render
     for (let media of medias) {
@@ -85,34 +81,31 @@ export class PhotographFactory extends Api {
 
   // Ajout des likes et calcul total
   cuntMediaLike() {
+    const allLegend = document.querySelectorAll('.hearth')// je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
 
-    let allLegend = document.querySelectorAll('.hearth')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
-    
     const addLike = (e) => {
-
-      let mediaLegendCunt = e.target.previousElementSibling//je cible la span
-      let totalLikes = document.querySelector('#footerInfosCunt')
+      let mediaLegendCunt = e.target.previousElementSibling// je cible la span
+      const totalLikes = document.querySelector('#footerInfosCunt')
 
       if (e.type == 'click') {
         console.log(e.target.parentNode.previousElementSibling)
         mediaLegendCunt = e.target.parentNode.previousElementSibling
       }
-      
+
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')
-        //si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
+        // si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
         totalLikes.textContent = parseInt(totalLikes.textContent) + 1
-
       } else {
-        //sinon je lui retire 1
+        // sinon je lui retire 1
         mediaLegendCunt.classList.remove('Liked')
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) - 1
         totalLikes.textContent = parseInt(totalLikes.textContent) - 1
       }
     }
 
-    //Branchement de listeners au click et clavier
+    // Branchement de listeners au click et clavier
     for (let h of allLegend) {
       h.addEventListener('click', addLike)
       h.addEventListener('keydown', e => {

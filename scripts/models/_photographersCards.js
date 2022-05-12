@@ -1,6 +1,5 @@
 export class PhotographersCards {
   constructor(photographers) {
-    // console.log(photographers)
     this._name = photographers.name
     this._id = photographers.id
     this._city = photographers.city
@@ -10,7 +9,7 @@ export class PhotographersCards {
     this._portrait = photographers.portrait
   }
 
-  renderOnePhotographer() {
+  renderOnePhotographer () {
     return `<article class="photographer-card">
               <a href="photographer.html?id=${this._id}" aria-label="${this._name}">
                   <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="${this._name}">
@@ -24,7 +23,7 @@ export class PhotographersCards {
           </article>`
   }
 
-  renderPhotographHeader() {
+  renderPhotographHeader () {
     return `<div class="photographer-header" aria-label="photographer profile of ${this._name}">
         <div class="infosPhotographer">
         <h1>${this._name}</h1>
