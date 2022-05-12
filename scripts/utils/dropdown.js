@@ -1,11 +1,10 @@
 // DOM Elements
 
 const dropDownBtn = document.querySelector('#filter-btn')
-
 const dropDownBtnKey = document.querySelector('.filterWrapper')
-
 const filterList = document.querySelector('.filter-listbox')
 
+// Methode apparition dropdown
 const displayDropDown = (e) => {
   if (!filterList.classList.contains('displayDropDown')) {
     filterList.classList.add('displayDropDown')
@@ -16,6 +15,7 @@ const displayDropDown = (e) => {
   }
 }
 
+// Methode ecoute dropdown
 const startDropDownListener = () => {
   dropDownBtn.addEventListener('click', displayDropDown)
   dropDownBtnKey.addEventListener('keydown', (e) => {
