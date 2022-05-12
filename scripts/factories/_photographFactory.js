@@ -12,7 +12,6 @@ export class PhotographFactory extends Api {
     try {
       /*on se met en attente des informations de note class API*/
       let photographs = await this.get()
-      // console.log(photographs)
       //on parcours notre array pour récup chaque photographe et on instancie notre phtographersCards
       const photographerProfile = photographs.map(p => new PhotographersCards(p))
       /*on retourne notre render*/
@@ -39,13 +38,11 @@ export class PhotographFactory extends Api {
     //on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
     try {
       let Onephotograph = await this.getPhotograph(id)
-      // console.log(Onephotograph)
       //on instancie notre constructeur pour recuperer le html et on lui passe notre methode getPhotograph(id)
       let photographerprofile = new PhotographersCards(Onephotograph)
       // console.log(photographerprofile)
       //on cree notre render en lui passant notre photograph profile et on appelle notre methode
       let renderProfile = photographerprofile.renderPhotographHeader()
-      // console.log(renderProfile)
       // on retourne notre render final avec toutes les infos necessaires
       return renderProfile
     } catch (err) {
@@ -58,7 +55,6 @@ export class PhotographFactory extends Api {
     try {
       //on reste en attente de la fonction getMediaApi
       let medias = await this.getMediaApi(photographerId)
-      // console.log(medias)
       let likes = 0
       let position = -1//car un array demarre de zéro
       //On declare render picture qui va parcourir notre array obtenu via getMediaApi 
@@ -67,10 +63,8 @@ export class PhotographFactory extends Api {
         position++
         return new MediaCards(m, position)
       })
-      // console.log(renderPicture)
       return {
         gallery: this.renderAllMedias(renderPicture),
-        // console.log(gallery)
         totalLikes: likes
       }
     } catch (err) {
@@ -93,13 +87,11 @@ export class PhotographFactory extends Api {
   cuntMediaLike() {
 
     let allLegend = document.querySelectorAll('.hearth')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
-    // console.log(allLegend)
+    
     const addLike = (e) => {
 
-      let mediaLegendCunt = e.target.previousElementSibling//je cible la span qui a l'id like-cunt
-      // console.log(mediaLegendCunt)
+      let mediaLegendCunt = e.target.previousElementSibling//je cible la span
       let totalLikes = document.querySelector('#footerInfosCunt')
-      // console.log(totalLikes)
 
       if (e.type == 'click') {
         console.log(e.target.parentNode.previousElementSibling)
@@ -124,10 +116,8 @@ export class PhotographFactory extends Api {
 
     //Branchement de listeners au click et clavier
     for (let h of allLegend) {
-      // console.log(h)
       h.addEventListener('click', addLike)
       h.addEventListener('keydown', e => {
-        // e.preventDefault()
         if (e.key === 'Enter') {
           addLike(e)
         }
