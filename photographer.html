@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -104,12 +104,12 @@
       <aside class="filter">
         <label class="filterLabel" id="filterLabel" for="filter">Trier par:</label>
         <div class="filterWrapper" id="filter" tabindex="0" role="button">
-          <label class="filterLabel" id="filter-btn" role="label">Popularité<span><svg
+          <label class="filterLabel" id="filter-btn" aria-label="Trier par">Popularité<span><svg
                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
                 <path
                   d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z" />
               </svg></span></label>
-          <ul class="filter-listbox" id="filter-listbox" role="listbox" aria-label="filter-label">
+          <ul class="filter-listbox" id="filter-listbox" role="listbox" aria-label="filterLabel">
             <button class="filterOption" tabindex="0" role="option" id="filter-pop" aria-selected="true"
               data-listbox-value="rate" data-listbox-name="Popularité">Popularité</button>
             <button class="filterOption" tabindex="0" role="option" id="filter-date" data-listbox-value="date"
@@ -173,4 +173,3 @@
 </body>
 
 </html>
-

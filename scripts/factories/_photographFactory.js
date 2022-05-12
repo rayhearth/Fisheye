@@ -96,8 +96,9 @@ export class PhotographFactory extends Api {
     // console.log(allLegend)
     const addLike = (e) => {
       e.preventDefault()
-      let mediaLegendCunt = document.getElementsByTagName('span')//je cible la span qui a l'id like-cunt
+      let mediaLegendCunt = document.querySelector('.media-legend-cunt')//je cible la span qui a l'id like-cunt
       console.log(mediaLegendCunt)
+      
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')
         //si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
@@ -115,7 +116,7 @@ export class PhotographFactory extends Api {
 
     //Branchement de listeners au click et clavier
     for (let h of allLegend) {
-      // console.log(h)
+      console.log(h)
       h.addEventListener('click', addLike)
       h.addEventListener('keydown', e => {
         // e.preventDefault()

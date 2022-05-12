@@ -9,16 +9,18 @@ const urlId = urlParams.get('id')
 
 let displayOnePhotograph = async () => {
 
+    //On stocke dans photograph notre photographfactory
     let photograph = new PhotographFactory()
-    // console.log(photograph)
+    //on se met en attente de getOnePhotograph pour recup les infos du photograph et on l'id via son id
     let OnePhotograph = await photograph.getOnePhotograph(urlId)
-    // console.log(OnePhotograph)
+    //On injecte dans le html le render de OnePhotograph
     document.querySelector('#photographer').innerHTML = OnePhotograph
 
     //on recupère le nom du photographe va le h1 et on l'injecte via l'id
     let name = document.querySelector('h1').textContent
     document.querySelector('#photographerName').innerHTML = name
 
+    //On branche les listener de la modal
     startcontactlistener()
 
 }
@@ -31,21 +33,20 @@ let displayAllMedia = async () => {
 
     //on stocke ds la variable media notre photographfactory
     let media = new PhotographFactory()
-    // console.log(media)
     //on se met en attente de getAllMedia pour recevoir tous les médias du photographe passé ds l'url 
     let AllMedias = await media.getAllMedia(urlId)
-    // console.log(urlId)
-    // console.log(AllMedias)
     //on injecte tous nos médias dans la section galleryContainer
     document.querySelector('#galleryContainer').innerHTML = AllMedias.gallery
-    // console.log(document.querySelector('.galleryContainer'))
-    // console.log(AllMedias.gallery)
 
+    /*LIGHTBOX*/
     //appel des listeners de la lightbox
     startlightboxlistener()
+
+    /*LIKE*/
     //appel de la methode des likes
     media.cuntMediaLike()
 
+    /*FILTRE MEDIAS*/
     //appel des listeners de la dropdown
     startDropDownListener()
 
@@ -55,7 +56,6 @@ let displayAllMedia = async () => {
 
     //on met les médias en array
     let mediasFiltered = [...document.querySelectorAll('.mediaContentCard')]
-
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', e => {
@@ -75,15 +75,11 @@ let displayAllMedia = async () => {
                 })
                     break;
                 default:
-                    throw new Error ('le type sélectionné ne correspond pas')
+                    throw new Error('le type sélectionné ne correspond pas')
             }
             document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML)
         })
     })
-
-    
-
-
 }
 
 window.addEventListener('load', displayAllMedia())
