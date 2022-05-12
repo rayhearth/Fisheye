@@ -23,7 +23,7 @@ const openLightbox = (e) => {
     lightbox.focus()
     //on cible la div sur laquelle on presse
     let currentMedia = e.target.closest('div')
-    console.log(e.target)
+
     if (e.type == 'click') {
         //si on fait un click on cible l'élém enfant
         currentMedia = e.target.parentNode

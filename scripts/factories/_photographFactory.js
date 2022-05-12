@@ -95,24 +95,31 @@ export class PhotographFactory extends Api {
     let allLegend = document.querySelectorAll('.hearth')//je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
     // console.log(allLegend)
     const addLike = (e) => {
-    
+
       let mediaLegendCunt = e.target.previousElementSibling//je cible la span qui a l'id like-cunt
-      console.log(mediaLegendCunt)
+      // console.log(mediaLegendCunt)
+      let totalLikes = document.querySelector('#footerInfosCunt')
+      // console.log(totalLikes)
+
+      if (e.type == 'click') {
+        console.log(e.target.parentNode.previousElementSibling)
+        mediaLegendCunt = e.target.parentNode.previousElementSibling
+      }
       
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')
         //si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
-  
+        totalLikes.textContent = parseInt(totalLikes.textContent) + 1
+
       } else {
         //sinon je lui retire 1
         mediaLegendCunt.classList.remove('Liked')
         mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) - 1
+        totalLikes.textContent = parseInt(totalLikes.textContent) - 1
       }
 
-      let totalLikes = document.querySelector('#footerInfosCunt')
-      // console.log(totalLikes)
-      totalLikes.textContent = parseInt(totalLikes.textContent) + 1
+
     }
 
     //Branchement de listeners au click et clavier
