@@ -88,14 +88,13 @@ export class PhotographFactory extends Api {
       const totalLikes = document.querySelector('#footerInfosCunt')
 
       if (e.type == 'click') {
-        console.log(e.target.parentNode.previousElementSibling)
         mediaLegendCunt = e.target.parentNode.previousElementSibling
       }
 
       if (!mediaLegendCunt.classList.contains('Liked')) {
         mediaLegendCunt.classList.add('Liked')
         // si mon element ne contient pas la classe liked au chg je lui ajoute la classe et +1
-        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 //pour effectuer l'addition on trans notre string avec parse int
+        mediaLegendCunt.textContent = parseInt(mediaLegendCunt.textContent) + 1 // pour effectuer l'addition on trans notre string avec parse int
         totalLikes.textContent = parseInt(totalLikes.textContent) + 1
       } else {
         // sinon je lui retire 1

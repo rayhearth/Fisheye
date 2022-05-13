@@ -1,9 +1,6 @@
 // DOM Elements
-
-let openLightboxBtn = document.querySelector('.mediaLink')
 let closeLightboxBtn = document.querySelector('#lightbox__close')
 
-let lightboxTitle = document.querySelector('#lightbox-media-title')
 let lightbox = document.querySelector("#lightbox")
 
 let prevBtn = document.querySelector('#lightbox__prev')
@@ -29,19 +26,16 @@ const openLightbox = (e) => {
   }
   // On recupere la position de notre media via l'att position et on fait un parseInt car il s'agit d'un chiffre
   index = parseInt(currentMedia.getAttribute('position'))
-  // console.log(index)
   // On injecte ds notre lightbox le media sur lequel on vient d'interagir
   document.querySelector('#light').innerHTML = all[index].innerHTML
-  // console.log(all[index])
 
   lightbox.setAttribute('aria-hidden', 'false')
   document.body.setAttribute('aria-hidden', 'true')
   lightbox.style.display = ''
-
 }
 
 // Affichage du prochain média
-let next = () => {
+const next = () => {
   // on ajoute la prochaine position a notre index
   index = index + 1
   // si on arrive sur le dernier élément du tableau
@@ -59,7 +53,7 @@ let next = () => {
 }
 
 // Affichage du précédent média
-let previous = () => {
+const previous = () => {
   // On enlève une position au média actuel
   index = index - 1
   // si on arrive au début du tableau, on repart sur le dernier élément
@@ -84,12 +78,10 @@ const closeLightbox = () => {
   lightbox.style.display = 'none'
 }
 
-
 // Branchement des listener
 
-let startlightboxlistener = () => {
+const startlightboxlistener = () => {
   all = document.querySelectorAll('.mediaLink')// on recupere tous nos medias
-//   console.log(all)
   for (let m of all) {// pour chaque media de all on branche les listeners
     m.addEventListener('click', openLightbox)
   }

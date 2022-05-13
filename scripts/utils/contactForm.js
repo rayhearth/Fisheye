@@ -46,7 +46,7 @@ const validation = (e) => {
   const verifMail = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
   const textFormat = /^[a-z\é\è\-\^\']{2,}$/i
 
-  //Form flag validation
+  // Form flag validation
   let formFlag = true
 
   // Firstname - min 2 char & not empty
@@ -85,7 +85,7 @@ const validation = (e) => {
     formFlag = true
   }
 
-  //Check validation errors
+  // Check validation errors
   if (!formFlag) {
     return false
   }
