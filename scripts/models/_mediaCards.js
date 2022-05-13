@@ -1,5 +1,5 @@
 export class MediaCards {
-  constructor(medias, position) {
+  constructor (medias, position) {
     this._id = medias.id
     this._photographerId = medias.photographerId
     this._title = medias.title
@@ -7,7 +7,7 @@ export class MediaCards {
     this._date = medias.date
     this._price = medias.price
     this._position = position
-    if (medias.hasOwnProperty("image")) {
+    if (medias.hasOwnProperty('image')) {
       this._type = 'image'
       this._media = medias.image
       // si le media a pour nom "image" alors il va nous retourner une img
@@ -18,7 +18,7 @@ export class MediaCards {
     }
   }
 
-  renderMedia() {
+  renderMedia () {
     if (this._type === 'image') {
       return this.renderImage()
     } else {

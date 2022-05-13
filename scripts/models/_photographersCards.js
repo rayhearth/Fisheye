@@ -1,5 +1,5 @@
 export class PhotographersCards {
-  constructor(photographers) {
+  constructor (photographers) {
     this._name = photographers.name
     this._id = photographers.id
     this._city = photographers.city
@@ -8,6 +8,8 @@ export class PhotographersCards {
     this._price = photographers.price
     this._portrait = photographers.portrait
   }
+
+  /* Render photographe page acceuil */
 
   renderOnePhotographer () {
     return `<article class="photographer-card">
@@ -23,6 +25,8 @@ export class PhotographersCards {
           </article>`
   }
 
+  /* Render header page du photographe */
+
   renderPhotographHeader () {
     return `<div class="photographer-header" aria-label="photographer profile of ${this._name}">
         <div class="infosPhotographer">
@@ -35,7 +39,6 @@ export class PhotographersCards {
             <button class="contactBtn" id="openModal" type="button" aria-label="photographer contact ${this._name}">Contactez-moi</button>
             <img class="img-profile" src="assets/photographers/${this._id}/${this._portrait}" alt="photo of ${this._name}">
         </div>
-        </div>
-        `
+        </div>`
   }
 }

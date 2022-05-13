@@ -1,14 +1,14 @@
 export class Api {
   url = './data/photographers.json'
 
-  async get() {
+  async get () {
     return fetch(this.url)
       .then(res => res.json())
       .then(res => res.photographers)
       .catch(err => console.log('an error occurs', err))
   }
 
-  async getPhotograph(id) {
+  async getPhotograph (id) {
     return fetch(this.url)
       .then(res => res.json())
       .then(res =>{
@@ -18,7 +18,7 @@ export class Api {
       .catch(err => console.log('an error occurs', err))
   }
 
-  async getMediaApi(photographerId) {
+  async getMediaApi (photographerId) {
     return fetch(this.url)
       .then(res => res.json())
       .then(res => res.media.filter(p => p.photographerId == photographerId))

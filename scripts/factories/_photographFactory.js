@@ -5,7 +5,7 @@ import { MediaCards } from '../models/_mediaCards.js'
 /* ma class Photograph hérite de ma class Api */
 export class PhotographFactory extends Api {
   /* méthode pour recupérer tous les photographes */
-  async getAllPhotograph() {
+  async getAllPhotograph () {
     try {
       /* on se met en attente des informations de note class API */
       const photographs = await this.get()
@@ -19,7 +19,7 @@ export class PhotographFactory extends Api {
   }
 
   // Render index
-  renderAllPhotograph(photographs) {
+  renderAllPhotograph (photographs) {
     /* variable qui recoit le template de renderOnePhotograph */
     let all = ''
     // pour chacun des photographes récup le render
@@ -30,7 +30,7 @@ export class PhotographFactory extends Api {
   }
 
   /* méthode pour recupérer un seul photographe */
-  async getOnePhotograph(id) {
+  async getOnePhotograph (id) {
     // on appelle la methode getOnePhotographe et on lui transmet l'id du photographe
     try {
       const Onephotograph = await this.getPhotograph(id)
@@ -47,7 +47,7 @@ export class PhotographFactory extends Api {
   }
 
   /* méthode pour récupérer tous les médias */
-  async getAllMedia(photographerId) {
+  async getAllMedia (photographerId) {
     try {
       // on reste en attente de la fonction getMediaApi
       const medias = await this.getMediaApi(photographerId)
@@ -69,7 +69,7 @@ export class PhotographFactory extends Api {
   }
 
   // Render index
-  renderAllMedias(medias) {
+  renderAllMedias (medias) {
     /* variable qui recoit le template de renderOnePhotograph */
     let all = ''
     // pour chacun des photographes récup le render
@@ -80,7 +80,7 @@ export class PhotographFactory extends Api {
   }
 
   // Ajout des likes et calcul total
-  cuntMediaLike() {
+  cuntMediaLike () {
     const allLegend = document.querySelectorAll('.hearth')// je cible le chiffre et le coeur pour que la surface cliquable soit mieux adaptée
 
     const addLike = (e) => {
