@@ -84,11 +84,7 @@ const startlightboxlistener = () => {
   all = document.querySelectorAll('.mediaLink')// on recupere tous nos medias
   for (let m of all) {// pour chaque media de all on branche les listeners
     m.addEventListener('click', openLightbox)
-  }
-
-  allKey = document.querySelectorAll('.mediaCard')// on recupère tous nos medias sur figure pour la navigation au clavier
-  for (let k of allKey) {
-    k.addEventListener('keydown', (e) => {
+    m.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         openLightbox(e)
       } else if (e.key === 'Escape' || e.key === 'Esc') {
