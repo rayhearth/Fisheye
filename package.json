@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/rayhearth/JuponEmmanuelle_6_18012022/issues"
   },
-  "homepage": "https://github.com/rayhearth/JuponEmmanuelle_6_18012022#readme",
   "devDependencies": {
     "eslint": "^8.15.0",
     "eslint-config-standard": "^17.0.0",
