@@ -113,7 +113,7 @@ img.logo {
   justify-content: center;
   align-items: center;
   position: fixed;
-  background: none;
+  background: transparent;
   border: none;
   text-indent: -3000px;
 }
