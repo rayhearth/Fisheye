@@ -186,6 +186,7 @@ img.logo {
 .filter {
   display: flex;
   align-items: center;
+  padding-top: 20px;
   gap: 0.75rem;
   font-weight: bold;
   width: 16rem;
@@ -516,20 +517,18 @@ main section.portfolio {
   /*GALLERY*/
 }
 main section.portfolio .galleryContainer {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  padding: 2%;
+  grid-column-gap: 7%;
+  grid-row-gap: 2%;
+  padding: 2% 0;
 }
 main section.portfolio .galleryContainer figure {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 33.33%;
-  min-width: 380px;
-  min-height: 370px;
-  padding: 2%;
+  width: 100%;
   position: relative;
   -webkit-animation: photographAppear 1s ease-in-out;
           animation: photographAppear 1s ease-in-out;
@@ -559,6 +558,7 @@ main section.portfolio .galleryContainer figure .mediaCard figcaption {
   display: none;
 }
 main section.portfolio .galleryContainer figure .mediaLegend {
+  padding-top: 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;

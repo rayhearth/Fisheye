@@ -34,19 +34,17 @@ main {
         width: 100%;
         /*GALLERY*/
         .galleryContainer {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             width: 100%;
-            padding: 2%;
+            grid-column-gap: 7%;
+            grid-row-gap: 2%;
+            padding: 2% 0;
             figure {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                width: 33.33%;
-                min-width: 380px;
-                min-height: 370px;
-                padding: 2%;
+                width: 100%;
                 position: relative;
                 animation: photographAppear 1s ease-in-out;
                 .mediaCard {
@@ -73,9 +71,10 @@ main {
                     }
                 }
                 .mediaLegend {
+                    padding-top: 2%;
                     display: flex;
                     justify-content: space-between;
-                    align-items: center;
+                    align-items: flex-start;
                     height: 50px;
                     h2 {
                         font-size: 1.5rem;
