@@ -11,8 +11,8 @@ export class Api {
   async getPhotograph (id) {
     return fetch(this.url)
       .then(res => res.json())
-      .then(res =>{
-        let a = res.photographers.filter(p => p.id == id)
+      .then(res => {
+        const a = res.photographers.filter(p => p.id == id)
         return a[0]
       })
       .catch(err => console.log('an error occurs', err))
