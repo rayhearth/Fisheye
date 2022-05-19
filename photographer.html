@@ -34,7 +34,7 @@
   <!--	HEADER------------------------------------------------>
   <header class="header">
     <a href="index.html" class="header-logo" id="logo_home">
-      <img src="assets/icons/logo.png"  class="logo" aria-label="Fisheye Home page" />
+      <img src="assets/icons/logo.png" class="logo" aria-label="Fisheye Home page" />
       <title id="title">Fisheye</title>
     </a>
   </header>
@@ -69,8 +69,7 @@
           </div>
           <div class="formData">
             <label class="form-label" for="lastName">Nom</label>
-            <input class="form-control" type="text" id="last" name="lastName" aria-label="Nom"
-              aria-required="true" />
+            <input class="form-control" type="text" id="last" name="lastName" aria-label="Nom" aria-required="true" />
             <div class="error" id="lastError"></div>
           </div>
           <div class="formData">
@@ -104,11 +103,13 @@
       <aside class="filter">
         <label class="filterLabel" id="filterLabel" for="filter">Trier par:</label>
         <div class="filterWrapper" id="filter" tabindex="0" role="button">
-          <label class="filterLabel" id="filter-btn" aria-label="Trier par">Popularité<span><svg
-                xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
+          <label class="filterLabel" id="filter-btn" aria-label="Trier par">
+            <span id="filter-label">Popularité</span>
+            <span><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024">
                 <path
                   d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496z" />
-              </svg></span></label>
+              </svg></span>
+          </label>
           <ul class="filter-listbox" id="filter-listbox" role="listbox" aria-label="filterLabel">
             <button class="filterOption" tabindex="0" role="option" id="filter-pop" aria-selected="true"
               data-listbox-value="rate" data-listbox-name="Popularité">Popularité</button>

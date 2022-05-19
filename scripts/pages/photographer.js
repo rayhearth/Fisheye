@@ -25,7 +25,7 @@ window.addEventListener('load', displayOnePhotograph())
 
 // Mise en place des médias, de la fonction de tri et de la lightbox
 const displayAllMedia = async () => {
-// on stocke ds la variable media notre photographfactory
+  // on stocke ds la variable media notre photographfactory
   const media = new PhotographFactory()
   // on se met en attente de getAllMedia pour recevoir tous les médias du photographe passé ds l'url 
   const AllMedias = await media.getAllMedia(urlId)
@@ -54,21 +54,24 @@ const displayAllMedia = async () => {
     btn.addEventListener('click', e => {
       switch (e.target.id) {
         case 'filter-pop': mediasFiltered.sort((a, b) => {
+          document.querySelector('#filter-label').textContent = 'Popularité'
           return b.dataset.cunt - a.dataset.cunt
         })
-          break
+          break;
         case 'filter-date': mediasFiltered.sort((a, b) => {
+          document.querySelector('#filter-label').textContent = 'date'
           return a.dataset.date.localeCompare(b.dataset.date)
         })
-          break
+          break;
         case 'filter-title': mediasFiltered.sort((a, b) => {
+          document.querySelector('#filter-label').textContent = 'titre'
           return a.dataset.title.localeCompare(b.dataset.title)
         })
-          break
+          break;
         default:
           throw new Error('le type sélectionné ne correspond pas')
       }
-      document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML)
+      document.querySelector('#galleryContainer').innerHTML = mediasFiltered.map(f => f.outerHTML).join('')
       /* LIGHTBOX */
       // appel des listeners de la lightbox
       startlightboxlistener()

@@ -12,6 +12,9 @@
         outline: none;
         gap: 1.625rem;
         cursor: pointer;
+        .hidenLabel{
+            display: none;
+        }
     }
     .filterWrapper {
         background-color: $red;
@@ -45,7 +48,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 2;
+            z-index: 4;
             width: 170px;
             box-shadow: $shadow;
             button {
@@ -89,6 +92,7 @@
         }
         .displayDropDown {
             display: flex;
+            
         }
     }
 }
