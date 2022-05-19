@@ -199,6 +199,9 @@ img.logo {
   gap: 1.625rem;
   cursor: pointer;
 }
+.filter label .hidenLabel {
+  display: none;
+}
 .filter .filterWrapper {
   background-color: #901c1c;
   position: relative;
@@ -220,6 +223,7 @@ img.logo {
 .filter .filterWrapper label {
   position: relative;
   min-height: 50px;
+  z-index: 2;
 }
 .filter .filterWrapper label span {
   fill: white;
@@ -238,39 +242,38 @@ img.logo {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 4;
   width: 170px;
   box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.2);
 }
-.filter .filterWrapper .filter-listbox button {
+.filter .filterWrapper .filter-listbox .filterOption {
+  display: flex;
+  align-items: center;
   position: relative;
   border: none;
   color: white;
   width: 100%;
   background-color: #901c1c;
-  display: flex;
-  align-items: center;
-  z-index: 3;
   padding-left: 5px;
+  height: 50px;
   text-align: left;
   cursor: pointer;
   outline: none;
-  height: 50px;
   transition: all 0.3s linear;
 }
-.filter .filterWrapper .filter-listbox button:hover {
+.filter .filterWrapper .filter-listbox .filterOption:hover {
   background-color: #d3573c;
   color: black;
 }
-.filter .filterWrapper .filter-listbox button:focus {
+.filter .filterWrapper .filter-listbox .filterOption:focus {
   background-color: #d3573c;
   color: black;
 }
-.filter .filterWrapper .filter-listbox button:first-child {
+.filter .filterWrapper .filter-listbox .filterOption:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.filter .filterWrapper .filter-listbox button:last-child::before, .filter .filterWrapper .filter-listbox button:nth-child(2)::before {
+.filter .filterWrapper .filter-listbox .filterOption:last-child::before, .filter .filterWrapper .filter-listbox .filterOption:nth-child(2)::before {
   position: absolute;
   top: 0;
   right: 5%;
@@ -280,7 +283,7 @@ img.logo {
   content: "";
   border-top: 1px solid white;
 }
-.filter .filterWrapper .filter-listbox button:last-child {
+.filter .filterWrapper .filter-listbox .filterOption:last-child {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
@@ -519,16 +522,18 @@ main section.portfolio {
 main section.portfolio .galleryContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
   grid-column-gap: 7%;
   grid-row-gap: 2%;
   padding: 2% 0;
+  width: 100%;
+  padding: 2%;
 }
 main section.portfolio .galleryContainer figure {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%;
+  min-height: 370px;
+  padding: 2%;
   position: relative;
   -webkit-animation: photographAppear 1s ease-in-out;
           animation: photographAppear 1s ease-in-out;
@@ -558,11 +563,11 @@ main section.portfolio .galleryContainer figure .mediaCard figcaption {
   display: none;
 }
 main section.portfolio .galleryContainer figure .mediaLegend {
-  padding-top: 2%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   height: 50px;
+  padding-top: 2%;
 }
 main section.portfolio .galleryContainer figure .mediaLegend h2 {
   font-size: 1.5rem;

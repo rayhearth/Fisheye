@@ -25,7 +25,7 @@ window.addEventListener('load', displayOnePhotograph())
 
 // Mise en place des médias, de la fonction de tri et de la lightbox
 const displayAllMedia = async () => {
-  // on stocke ds la variable media notre photographfactory
+// on stocke ds la variable media notre photographfactory
   const media = new PhotographFactory()
   // on se met en attente de getAllMedia pour recevoir tous les médias du photographe passé ds l'url 
   const AllMedias = await media.getAllMedia(urlId)
