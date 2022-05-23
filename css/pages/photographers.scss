@@ -37,16 +37,14 @@ main {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-column-gap: 7%;
-            grid-row-gap: 2%;
-            padding: 2% 0;
+            grid-row-gap: 6%;
+            padding-top: 2%;
             width: 100%;
-            padding: 2%;
             figure {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                min-height: 370px;
-                padding: 2%;
+                min-height: 19rem;                
                 position: relative;
                 animation: photographAppear 1s ease-in-out;
                 .mediaCard {
@@ -56,7 +54,7 @@ main {
                     video {
                         object-fit: cover;
                         width: 100%;
-                        height: 370px;
+                        height: 19rem;
                         border-radius: 5px;
                     }
                     p {

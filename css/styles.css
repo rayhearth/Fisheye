@@ -223,9 +223,10 @@ img.logo {
 .filter .filterWrapper label {
   position: relative;
   min-height: 50px;
-  z-index: 2;
+  z-index: 3;
 }
 .filter .filterWrapper label span {
+  color: white;
   fill: white;
   width: 16px;
   height: 24px;
@@ -242,7 +243,7 @@ img.logo {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 4;
+  z-index: 2;
   width: 170px;
   box-shadow: 1px 3px 8px 0px rgba(0, 0, 0, 0.2);
 }
@@ -254,7 +255,7 @@ img.logo {
   color: white;
   width: 100%;
   background-color: #901c1c;
-  padding-left: 5px;
+  padding: 6px 0 0 10px;
   height: 50px;
   text-align: left;
   cursor: pointer;
@@ -523,17 +524,15 @@ main section.portfolio .galleryContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 7%;
-  grid-row-gap: 2%;
-  padding: 2% 0;
+  grid-row-gap: 6%;
+  padding-top: 2%;
   width: 100%;
-  padding: 2%;
 }
 main section.portfolio .galleryContainer figure {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-height: 370px;
-  padding: 2%;
+  min-height: 19rem;
   position: relative;
   -webkit-animation: photographAppear 1s ease-in-out;
           animation: photographAppear 1s ease-in-out;
@@ -547,7 +546,7 @@ main section.portfolio .galleryContainer figure .mediaCard video {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
-  height: 370px;
+  height: 19rem;
   border-radius: 5px;
 }
 main section.portfolio .galleryContainer figure .mediaCard p {
