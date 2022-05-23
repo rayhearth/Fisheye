@@ -53,7 +53,7 @@ export class PhotographFactory extends Api {
       const medias = await this.getMediaApi(photographerId)
       let likes = 0
       let position = -1// car un array demarre de zéro
-      // On declare render picture qui va parcourir notre array obtenu via getMediaApi 
+      // On declare render picture qui va parcourir notre array obtenu via getMediaApi
       let renderPicture = medias.map(m => {
         likes += m.likes
         position++
