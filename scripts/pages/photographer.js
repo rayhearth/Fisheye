@@ -54,17 +54,17 @@ const displayAllMedia = async () => {
     btn.addEventListener('click', e => {
       switch (e.target.id) {
         case 'filter-pop': mediasFiltered.sort((a, b) => {
-          // document.querySelector('#filter-label').textContent = 'Popularité'
+          document.querySelector('#filter-label').textContent = 'Popularité'
           return b.dataset.cunt - a.dataset.cunt
         })
           break;
         case 'filter-date': mediasFiltered.sort((a, b) => {
-          // document.querySelector('#filter-label').textContent = 'date'
+          document.querySelector('#filter-label').textContent = 'date'
           return a.dataset.date.localeCompare(b.dataset.date)
         })
           break;
         case 'filter-title': mediasFiltered.sort((a, b) => {
-          // document.querySelector('#filter-label').textContent = 'titre'
+          document.querySelector('#filter-label').textContent = 'titre'
           return a.dataset.title.localeCompare(b.dataset.title)
         })
           break;
