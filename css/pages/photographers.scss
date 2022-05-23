@@ -36,15 +36,15 @@ main {
         .galleryContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            grid-column-gap: 6%;
-            grid-row-gap: 5%;
+            grid-column-gap: 5%;
+            grid-row-gap: 2%;
             padding-top: 2%;
             width: 100%;
             figure {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
-                min-height: 19rem;                
+                // min-height: 19rem;                
                 position: relative;
                 animation: photographAppear 1s ease-in-out;
                 .mediaCard {
